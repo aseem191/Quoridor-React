@@ -7,7 +7,7 @@ __NEXT_REGISTER_PAGE('/game', function() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony default export */ var _unused_webpack_default_export = ("https://quoridorbackend.herokuapp.com/");
+/* harmony default export */ __webpack_exports__["a"] = ("https://quoridorbackend.herokuapp.com");
 
 /***/ }),
 
@@ -3140,9 +3140,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
@@ -3162,58 +3162,80 @@ function (_React$Component) {
     _classCallCheck(this, Game);
 
     _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
-    _this.changeName = _this.changeName.bind(_assertThisInitialized(_this));
-    _this.startGame = _this.startGame.bind(_assertThisInitialized(_this));
+    var params = {
+      uname: _this.props.name
+    };
+
+    if (!_this.props.game) {
+      __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/player", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log("player response is " + JSON.stringify(data));
+
+        if (!data.error) {
+          __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/game/" + data.id).then(function (response) {
+            return response.json();
+          }).then(function (data) {
+            _this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["a" /* updateGame */])(data));
+
+            console.log("game is " + JSON.stringify(data));
+          });
+        }
+      });
+    }
+
     return _this;
   }
 
   _createClass(Game, [{
-    key: "changeName",
-    value: function changeName(event) {
-      this.setState({
-        name: event.currentTarget.value
-      });
-    }
-  }, {
-    key: "startGame",
-    value: function startGame(event) {
-      this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["a" /* updateName */])(this.state.name));
-    }
-  }, {
     key: "render",
     value: function render() {
+      //Has game pieces
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 28
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 29
-        }
-      }, "Enter your name:"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
-        onSubmit: function onSubmit(e) {
-          e.preventDefault();
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 30
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
-        type: "text",
-        onChange: this.changeName,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 31
         }
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-        onClick: this.startGame,
+      }, this.props.game ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          display: "inline"
+        },
         __source: {
           fileName: _jsxFileName,
           lineNumber: 34
         }
-      }, "Start game!"));
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          height: "50px",
+          width: "50px",
+          backgroundColor: "#555"
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 34
+        }
+      }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          height: "50px",
+          width: "50px",
+          backgroundColor: "#555"
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 34
+        }
+      })) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
+        }
+      }, "Loading game..."));
     }
   }]);
 
@@ -3335,8 +3357,8 @@ var page = function page(Page) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export updateGame */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updateName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updateGame; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updateName; });
 var updateGame = function updateGame(game) {
   return {
     type: "UPDATEGAME",

@@ -7,7 +7,7 @@ __NEXT_REGISTER_PAGE('/', function() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony default export */ var _unused_webpack_default_export = ("https://quoridorbackend.herokuapp.com/");
+/* harmony default export */ __webpack_exports__["a"] = ("https://quoridorbackend.herokuapp.com");
 
 /***/ }),
 
@@ -3180,7 +3180,7 @@ function (_React$Component) {
   }, {
     key: "startGame",
     value: function startGame(event) {
-      this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["a" /* updateName */])(this.state.name));
+      this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["b" /* updateName */])(this.state.name));
       console.log("done");
     }
   }, {
@@ -3347,8 +3347,8 @@ var page = function page(Page) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export updateGame */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updateName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updateGame; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updateName; });
 var updateGame = function updateGame(game) {
   return {
     type: "UPDATEGAME",

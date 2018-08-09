@@ -8,30 +8,33 @@ import { updateGame, updateName } from "../redux/actions.js";
 class Game extends React.Component{
 	constructor(props){
 		super(props);
+		var params = {uname: this.props.name}
+		if(!this.props.game){
+			fetch(urlname + "/player", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+				console.log("player response is " + JSON.stringify(data))
+				if(!data.error){
+					fetch(urlname + "/game/" + data.id).then(response => response.json()).then(data => {
+						this.props.dispatch(updateGame(data));
+						console.log("game is " + JSON.stringify(data))
+					})
+				}
+				
+			})
+		}
 		
-		this.changeName = this.changeName.bind(this);
-		this.startGame = this.startGame.bind(this);
 	}
 
-	changeName(event){
-		this.setState({
-			name: event.currentTarget.value
-		})
-	}
-
-	startGame(event){
-		this.props.dispatch(updateName(this.state.name));
-	}
-
+	
 	render(){
+		//Has game pieces
 		return(
 			<div>
-				<h3>Enter your name:</h3>
-				<form onSubmit={e => {e.preventDefault();}}>
-					<input type='text' onChange={this.changeName}/>
-				</form>
-				
-				<button onClick={this.startGame}>Start game!</button>
+				{this.props.game ?
+				(
+					<div style={{display: "inline"}}><div style={{height: "50px", width: "50px", backgroundColor: "#555"}}></div> <div style={{height: "50px", width: "50px", backgroundColor: "#555"}}></div></div>
+				)
+				: <h3>Loading game...</h3>
+				}
 				
 			</div>
 		)

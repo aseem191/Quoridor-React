@@ -1,1 +1,1 @@
-export default "https://quoridorbackend.herokuapp.com/"
+export default "https://quoridorbackend.herokuapp.com"
