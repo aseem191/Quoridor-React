@@ -5,14 +5,10 @@ import { connect } from "react-redux";
 import Page from "./page.js"
 import { updateGame, updateName } from "../redux/actions.js";
 
-class LoginPage extends React.Component{
+class Game extends React.Component{
 	constructor(props){
 		super(props);
-
-		this.state = {
-			name: ""
-		}
-
+		
 		this.changeName = this.changeName.bind(this);
 		this.startGame = this.startGame.bind(this);
 	}
@@ -25,7 +21,6 @@ class LoginPage extends React.Component{
 
 	startGame(event){
 		this.props.dispatch(updateName(this.state.name));
-		console.log("done")
 	}
 
 	render(){
@@ -35,12 +30,12 @@ class LoginPage extends React.Component{
 				<form onSubmit={e => {e.preventDefault();}}>
 					<input type='text' onChange={this.changeName}/>
 				</form>
-				<Link  href={{ pathname: '/game' }}>
-					<button onClick={this.startGame}>Start game!</button>
-				</Link>
+				
+				<button onClick={this.startGame}>Start game!</button>
+				
 			</div>
 		)
 	}
 }
 
-export default Page(connect(state=>state)(LoginPage))
+export default Page(connect(state=>state)(Game))
