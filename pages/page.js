@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from "react-redux";
-import store from "../store/index.js";
+import store from "../redux/store.js";
 
 const page = (Page) => {
     return(
