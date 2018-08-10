@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -131,9 +131,16 @@ function (_React$Component) {
     _classCallCheck(this, Game);
 
     _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
+    _this.fetchGame = _this.fetchGame.bind(_assertThisInitialized(_this));
     _this.brickMouseOver = _this.brickMouseOver.bind(_assertThisInitialized(_this));
     _this.brickMouseLeave = _this.brickMouseLeave.bind(_assertThisInitialized(_this));
     _this.clickBrick = _this.clickBrick.bind(_assertThisInitialized(_this));
+    _this.squareMouseOver = _this.squareMouseOver.bind(_assertThisInitialized(_this));
+    _this.squareMouseLeave = _this.squareMouseLeave.bind(_assertThisInitialized(_this));
+    _this.clickSquare = _this.clickSquare.bind(_assertThisInitialized(_this));
+
+    _this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["a" /* updateGame */])(null));
+
     var arr = [];
 
     for (var x = 0; x < 8; x++) {
@@ -154,11 +161,24 @@ function (_React$Component) {
       }
     }
 
+    var arr3 = [];
+
+    for (var x = 0; x < 9; x++) {
+      arr3[x] = [];
+
+      for (var y = 0; y < 9; y++) {
+        arr3[x][y] = 0;
+      }
+    }
+
     _this.state = {
-      pieceColor: "#555",
+      squareColor: "#555",
       brickDefaultColor: "#4286f4",
       brickExistsColor: "#eda034",
       brickHighlightedColor: "#000863",
+      player1Color: "#d30606",
+      player2Color: "#30b500",
+      playerArray: arr3.slice(),
       verticalBricks: arr.slice(),
       horizontalBricks: arr2.slice()
     };
@@ -166,7 +186,7 @@ function (_React$Component) {
       uname: _this.props.name
     };
 
-    if (!_this.props.game) {
+    if (!_this.props.gameID) {
       __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/player", {
         method: 'POST',
         headers: {
@@ -184,6 +204,8 @@ function (_React$Component) {
           }).then(function (data) {
             _this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["a" /* updateGame */])(data));
 
+            _this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["b" /* updateGameID */])(data._id));
+
             console.log("game is " + JSON.stringify(data));
           });
         }
@@ -194,62 +216,121 @@ function (_React$Component) {
   }
 
   _createClass(Game, [{
+    key: "fetchGame",
+    value: function fetchGame() {
+      var _this2 = this;
+
+      if (this.props.gameID) {
+        __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/game/" + this.props.gameID).then(function (response) {
+          return response.json();
+        }).then(function (data) {
+          _this2.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["a" /* updateGame */])(data));
+        });
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this3 = this;
+
+      this.interval = setInterval(function () {
+        return _this3.fetchGame();
+      }, 2000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.interval);
+    }
+  }, {
+    key: "squareMouseOver",
+    value: function squareMouseOver(event) {
+      if (this.props.game) {
+        if (this.props.game.PlayerTurn == this.props.name) {}
+      }
+    }
+  }, {
+    key: "squareMouseLeave",
+    value: function squareMouseLeave(event) {
+      if (this.props.game) {
+        if (this.props.game.PlayerTurn == this.props.name) {}
+      }
+    }
+  }, {
+    key: "clickSquare",
+    value: function clickSquare(event) {
+      if (this.props.game) {
+        if (this.props.game.PlayerTurn == this.props.name) {}
+      }
+    }
+  }, {
     key: "clickBrick",
-    value: function clickBrick(event) {}
+    value: function clickBrick(event) {
+      if (this.props.game) {
+        if (this.props.game.PlayerTurn == this.props.name) {}
+      }
+    }
   }, {
     key: "brickMouseOver",
     value: function brickMouseOver(event) {
-      var x = event.currentTarget.getAttribute('x');
-      var y = event.currentTarget.getAttribute('y');
-      var orientation = event.currentTarget.getAttribute('orientation');
-      console.log("mouseover" + x + y + orientation);
+      if (this.props.game) {
+        if (this.props.game.PlayerTurn == this.props.name) {
+          var x = event.currentTarget.getAttribute('x');
+          var y = event.currentTarget.getAttribute('y');
+          var orientation = event.currentTarget.getAttribute('orientation');
 
-      if (orientation == "vertical") {
-        var temparr = this.state.verticalBricks.slice();
-        temparr[x][y] = this.state.brickHighlightedColor;
-        this.setState({
-          verticalBricks: temparr
-        });
-      } else if (orientation == "horizontal") {
-        var temparr = this.state.horizontalBricks.slice();
-        temparr[x][y] = this.state.brickHighlightedColor;
-        this.setState({
-          horizontalBricks: temparr
-        });
-      } else if (orientation == "middle") {
-        var temparr = this.state.verticalBricks.slice();
-        temparr[x][y] = this.state.brickHighlightedColor;
-        this.setState({
-          verticalBricks: temparr
-        });
+          if (orientation == "vertical") {
+            var temparr = this.state.verticalBricks.slice();
+            temparr[x][y] = this.state.brickHighlightedColor;
+            this.setState({
+              verticalBricks: temparr
+            });
+          } else if (orientation == "horizontal") {
+            var temparr = this.state.horizontalBricks.slice();
+            temparr[x][y] = this.state.brickHighlightedColor;
+            this.setState({
+              horizontalBricks: temparr
+            });
+          } else if (orientation == "middle") {
+            var temparr = this.state.verticalBricks.slice();
+            temparr[x][y] = this.state.brickHighlightedColor;
+            this.setState({
+              verticalBricks: temparr
+            });
+          }
+        }
       }
     }
   }, {
     key: "brickMouseLeave",
     value: function brickMouseLeave(event) {
-      var x = event.currentTarget.getAttribute('x');
-      var y = event.currentTarget.getAttribute('y');
-      var orientation = event.currentTarget.getAttribute('orientation');
-      console.log("mouseover" + x + y + orientation);
+      if (this.props.game) {
+        if (this.props.game.PlayerTurn == this.props.name) {
+          var x = event.currentTarget.getAttribute('x');
+          var y = event.currentTarget.getAttribute('y');
+          var orientation = event.currentTarget.getAttribute('orientation');
+          console.log("mouseover" + x + y + orientation);
 
-      if (orientation == "vertical") {
-        var temparr = this.state.verticalBricks.slice();
-        temparr[x][y] = this.state.brickDefaultColor;
-        this.setState({
-          verticalBricks: temparr
-        });
-      } else if (orientation == "horizontal") {
-        var temparr = this.state.horizontalBricks.slice();
-        temparr[x][y] = this.state.brickDefaultColor;
-        this.setState({
-          horizontalBricks: temparr
-        });
-      } else if (orientation == "middle") {
-        var temparr = this.state.verticalBricks.slice();
-        temparr[x][y] = this.state.brickDefaultColor;
-        this.setState({
-          verticalBricks: temparr
-        });
+          if (orientation == "vertical") {
+            var temparr = this.state.verticalBricks.slice();
+            temparr[x][y] = this.state.brickDefaultColor;
+            this.setState({
+              verticalBricks: temparr
+            });
+          } else if (orientation == "horizontal") {
+            var temparr = this.state.horizontalBricks.slice();
+            temparr[x][y] = this.state.brickDefaultColor;
+            this.setState({
+              horizontalBricks: temparr
+            });
+          } else if (orientation == "middle") {
+            var temparr = this.state.verticalBricks.slice();
+            temparr[x][y] = this.state.brickDefaultColor;
+            this.setState({
+              verticalBricks: temparr
+            });
+          }
+        }
       }
     }
   }, {
@@ -258,29 +339,34 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 120
+          lineNumber: 192
         }
       }, this.props.game ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 195
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 196
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 0,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[0][0] == 1 ? this.state.player1Color : this.state.playerArray[0][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 197
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -298,19 +384,24 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126
+          lineNumber: 198
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 1,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[1][0] == 1 ? this.state.player1Color : this.state.playerArray[1][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127
+          lineNumber: 199
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -328,19 +419,24 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 200
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 2,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[2][0] == 1 ? this.state.player1Color : this.state.playerArray[2][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 201
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -358,19 +454,24 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 130
+          lineNumber: 202
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 3,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[3][0] == 1 ? this.state.player1Color : this.state.playerArray[3][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 203
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -388,19 +489,24 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 204
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 4,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[4][0] == 1 ? this.state.player1Color : this.state.playerArray[4][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 205
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -418,19 +524,24 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 206
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 5,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[5][0] == 1 ? this.state.player1Color : this.state.playerArray[5][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135
+          lineNumber: 207
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -448,19 +559,24 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 136
+          lineNumber: 208
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 6,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[6][0] == 1 ? this.state.player1Color : this.state.playerArray[6][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 209
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -478,19 +594,24 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 210
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 7,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[7][0] == 1 ? this.state.player1Color : this.state.playerArray[7][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 211
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -508,19 +629,24 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 212
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        x: 8,
+        y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: this.state.pieceColor
+          backgroundColor: this.state.playerArray[8][0] == 1 ? this.state.player1Color : this.state.playerArray[8][0] == 2 ? this.state.player2Color : this.state.squareColor
         },
+        onClick: this.clickSquare,
+        onMouseOver: this.squareMouseOver,
+        onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 141
+          lineNumber: 213
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -528,17 +654,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 143
+          lineNumber: 215
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 216
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146
+          lineNumber: 218
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -556,7 +682,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 219
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -574,7 +700,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 220
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -592,7 +718,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 221
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -610,7 +736,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 150
+          lineNumber: 222
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -628,7 +754,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 151
+          lineNumber: 223
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -646,7 +772,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 152
+          lineNumber: 224
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -664,7 +790,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153
+          lineNumber: 225
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -682,7 +808,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 226
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -700,7 +826,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 227
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -718,7 +844,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 228
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -736,7 +862,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157
+          lineNumber: 229
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -754,7 +880,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 158
+          lineNumber: 230
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -772,7 +898,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 159
+          lineNumber: 231
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -790,7 +916,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 160
+          lineNumber: 232
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -808,7 +934,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 233
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -826,7 +952,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 234
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -844,12 +970,12 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 163
+          lineNumber: 235
         }
       }))) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 167
+          lineNumber: 239
         }
       }, "Loading game..."));
     }
@@ -937,11 +1063,18 @@ var page = function page(Page) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updateGame; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updateName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updateGameID; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return updateName; });
 var updateGame = function updateGame(game) {
   return {
     type: "UPDATEGAME",
     payload: game
+  };
+};
+var updateGameID = function updateGameID(gameID) {
+  return {
+    type: "UPDATEGAMEID",
+    payload: gameID
   };
 };
 var updateName = function updateName(name) {
@@ -963,7 +1096,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var initialState = {
   game: null,
-  name: null
+  name: null,
+  gameID: null
 };
 
 var rootReducer = function rootReducer() {
@@ -974,6 +1108,11 @@ var rootReducer = function rootReducer() {
     case "UPDATEGAME":
       return _objectSpread({}, state, {
         game: action.payload
+      });
+
+    case "UPDATEGAMEID":
+      return _objectSpread({}, state, {
+        gameID: action.payload
       });
 
     case "UPDATENAME":
@@ -1004,7 +1143,7 @@ var store = Object(__WEBPACK_IMPORTED_MODULE_1_redux__["createStore"])(__WEBPACK
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/game.js");

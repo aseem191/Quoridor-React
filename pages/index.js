@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch'
 import urlname from '../components/urlname.js'
 import { connect } from "react-redux";
 import Page from "./page.js"
-import { updateGame, updateName } from "../redux/actions.js";
+import { updateGame, updateName, updateGameID } from "../redux/actions.js";
 
 class LoginPage extends React.Component{
 	constructor(props){

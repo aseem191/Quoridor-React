@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -149,7 +149,7 @@ function (_React$Component) {
   }, {
     key: "startGame",
     value: function startGame(event) {
-      this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["b" /* updateName */])(this.state.name));
+      this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["c" /* updateName */])(this.state.name));
       console.log("done");
     }
   }, {
@@ -280,11 +280,18 @@ var page = function page(Page) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updateGame; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updateName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updateGameID; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return updateName; });
 var updateGame = function updateGame(game) {
   return {
     type: "UPDATEGAME",
     payload: game
+  };
+};
+var updateGameID = function updateGameID(gameID) {
+  return {
+    type: "UPDATEGAMEID",
+    payload: gameID
   };
 };
 var updateName = function updateName(name) {
@@ -306,7 +313,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var initialState = {
   game: null,
-  name: null
+  name: null,
+  gameID: null
 };
 
 var rootReducer = function rootReducer() {
@@ -317,6 +325,11 @@ var rootReducer = function rootReducer() {
     case "UPDATEGAME":
       return _objectSpread({}, state, {
         game: action.payload
+      });
+
+    case "UPDATEGAMEID":
+      return _objectSpread({}, state, {
+        gameID: action.payload
       });
 
     case "UPDATENAME":
@@ -347,7 +360,7 @@ var store = Object(__WEBPACK_IMPORTED_MODULE_1_redux__["createStore"])(__WEBPACK
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/index.js");
