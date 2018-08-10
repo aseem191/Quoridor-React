@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/game', function() {
           var comp =
-      webpackJsonp([5],{
+      webpackJsonp([4],{
 
 /***/ "./components/urlname.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -3175,13 +3175,23 @@ function (_React$Component) {
       }
     }
 
+    var arr2 = [];
+
+    for (var x = 0; x < 8; x++) {
+      arr2[x] = [];
+
+      for (var y = 0; y < 8; y++) {
+        arr2[x][y] = "#4286f4";
+      }
+    }
+
     _this.state = {
       pieceColor: "#555",
       brickDefaultColor: "#4286f4",
       brickExistsColor: "#eda034",
       brickHighlightedColor: "#000863",
       verticalBricks: arr.slice(),
-      horizontalBricks: arr.slice()
+      horizontalBricks: arr2.slice()
     };
     var params = {
       uname: _this.props.name
@@ -3279,109 +3289,19 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 120
         }
       }, this.props.game ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 118
-        }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 119
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 0,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[0][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 120
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 121
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 1,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[1][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 122
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 123
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 2,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[2][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 124
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
           float: "left",
           display: "inline",
@@ -3395,14 +3315,14 @@ function (_React$Component) {
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
-        x: 3,
+        x: 0,
         y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "25px",
-          backgroundColor: this.state.verticalBricks[3][0]
+          backgroundColor: this.state.verticalBricks[0][0]
         },
         onClick: this.clickBrick,
         onMouseOver: this.brickMouseOver,
@@ -3425,14 +3345,14 @@ function (_React$Component) {
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
-        x: 4,
+        x: 1,
         y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "25px",
-          backgroundColor: this.state.verticalBricks[4][0]
+          backgroundColor: this.state.verticalBricks[1][0]
         },
         onClick: this.clickBrick,
         onMouseOver: this.brickMouseOver,
@@ -3455,14 +3375,14 @@ function (_React$Component) {
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
-        x: 5,
+        x: 2,
         y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "25px",
-          backgroundColor: this.state.verticalBricks[5][0]
+          backgroundColor: this.state.verticalBricks[2][0]
         },
         onClick: this.clickBrick,
         onMouseOver: this.brickMouseOver,
@@ -3485,14 +3405,14 @@ function (_React$Component) {
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
-        x: 6,
+        x: 3,
         y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "25px",
-          backgroundColor: this.state.verticalBricks[6][0]
+          backgroundColor: this.state.verticalBricks[3][0]
         },
         onClick: this.clickBrick,
         onMouseOver: this.brickMouseOver,
@@ -3515,14 +3435,14 @@ function (_React$Component) {
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
-        x: 7,
+        x: 4,
         y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "25px",
-          backgroundColor: this.state.verticalBricks[7][0]
+          backgroundColor: this.state.verticalBricks[4][0]
         },
         onClick: this.clickBrick,
         onMouseOver: this.brickMouseOver,
@@ -3543,23 +3463,113 @@ function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 135
         }
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 5,
+        y: 0,
         style: {
-          lineHeight: "320%"
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[5][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 136
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
         },
         __source: {
           fileName: _jsxFileName,
           lineNumber: 137
         }
-      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 6,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[6][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 138
         }
-      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 139
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 7,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[7][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 140
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 141
+        }
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          lineHeight: "315%"
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 143
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 144
+        }
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 146
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3572,9 +3582,12 @@ function (_React$Component) {
           width: "50px",
           backgroundColor: this.state.horizontalBricks[0][0]
         },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 141
+          lineNumber: 147
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3585,119 +3598,143 @@ function (_React$Component) {
           display: "inline",
           height: "25px",
           width: "25px",
-          backgroundColor: this.state.horizontalBricks[0][0] == this.state.brickExistsColor ? this.state.horizontalBricks[0][0] : this.state.verticalBricks[0][0]
+          backgroundColor: this.state.horizontalBricks[0][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[0][0] : this.state.verticalBricks[0][0]
         },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 142
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "horizontal",
-        x: 1,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "50px",
-          backgroundColor: this.state.horizontalBricks[0][0] == this.state.brickExistsColor ? this.state.horizontalBricks[0][0] : this.state.horizontalBricks[1][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 143
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "middle",
-        x: 1,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "25px",
-          backgroundColor: this.state.horizontalBricks[1][0] == this.state.brickExistsColor ? this.state.horizontalBricks[1][0] : this.state.verticalBricks[1][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 144
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "horizontal",
-        x: 2,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "50px",
-          backgroundColor: this.state.horizontalBricks[1][0] == this.state.brickExistsColor ? this.state.horizontalBricks[1][0] : this.state.horizontalBricks[2][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 145
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "middle",
-        x: 2,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "25px",
-          backgroundColor: this.state.horizontalBricks[2][0] == this.state.brickExistsColor ? this.state.horizontalBricks[2][0] : this.state.verticalBricks[2][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 146
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "horizontal",
-        x: 3,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "50px",
-          backgroundColor: this.state.horizontalBricks[2][0] == this.state.brickExistsColor ? this.state.horizontalBricks[2][0] : this.state.horizontalBricks[3][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 147
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "middle",
-        x: 3,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "25px",
-          backgroundColor: this.state.horizontalBricks[3][0] == this.state.brickExistsColor ? this.state.horizontalBricks[3][0] : this.state.verticalBricks[3][0]
-        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 148
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
-        x: 4,
+        x: 1,
         y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "25px",
           width: "50px",
-          backgroundColor: this.state.horizontalBricks[3][0] == this.state.brickExistsColor ? this.state.horizontalBricks[3][0] : this.state.horizontalBricks[4][0]
+          backgroundColor: this.state.horizontalBricks[0][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[0][0] : this.state.horizontalBricks[1][0]
         },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 149
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
+        x: 1,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.horizontalBricks[1][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[1][0] : this.state.verticalBricks[1][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 150
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "horizontal",
+        x: 2,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.horizontalBricks[1][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[1][0] : this.state.horizontalBricks[2][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 151
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "middle",
+        x: 2,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.horizontalBricks[2][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[2][0] : this.state.verticalBricks[2][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 152
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "horizontal",
+        x: 3,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.horizontalBricks[2][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[2][0] : this.state.horizontalBricks[3][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 153
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "middle",
+        x: 3,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.horizontalBricks[3][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[3][0] : this.state.verticalBricks[3][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 154
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "horizontal",
+        x: 4,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.horizontalBricks[3][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[3][0] : this.state.horizontalBricks[4][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 155
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "middle",
         x: 4,
         y: 0,
         style: {
@@ -3705,101 +3742,122 @@ function (_React$Component) {
           display: "inline",
           height: "25px",
           width: "25px",
-          backgroundColor: this.state.horizontalBricks[4][0] == this.state.brickExistsColor ? this.state.horizontalBricks[4][0] : this.state.verticalBricks[4][0]
+          backgroundColor: this.state.horizontalBricks[4][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[4][0] : this.state.verticalBricks[4][0]
         },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 150
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "horizontal",
-        x: 5,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "50px",
-          backgroundColor: this.state.horizontalBricks[4][0] == this.state.brickExistsColor ? this.state.horizontalBricks[4][0] : this.state.horizontalBricks[5][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 151
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "middle",
-        x: 5,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "25px",
-          backgroundColor: this.state.horizontalBricks[5][0] == this.state.brickExistsColor ? this.state.horizontalBricks[5][0] : this.state.verticalBricks[5][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 152
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "horizontal",
-        x: 6,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "50px",
-          backgroundColor: this.state.horizontalBricks[5][0] == this.state.brickExistsColor ? this.state.horizontalBricks[5][0] : this.state.horizontalBricks[6][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 153
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "middle",
-        x: 6,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "25px",
-          backgroundColor: this.state.horizontalBricks[6][0] == this.state.brickExistsColor ? this.state.horizontalBricks[6][0] : this.state.verticalBricks[6][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 154
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "horizontal",
-        x: 7,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "50px",
-          backgroundColor: this.state.horizontalBricks[6][0] == this.state.brickExistsColor ? this.state.horizontalBricks[6][0] : this.state.horizontalBricks[7][0]
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 155
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "middle",
-        x: 7,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "25px",
-          width: "25px",
-          backgroundColor: this.state.horizontalBricks[7][0] == this.state.brickExistsColor ? this.state.horizontalBricks[7][0] : this.state.verticalBricks[7][0]
-        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 156
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "horizontal",
+        x: 5,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.horizontalBricks[4][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[4][0] : this.state.horizontalBricks[5][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 157
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "middle",
+        x: 5,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.horizontalBricks[5][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[5][0] : this.state.verticalBricks[5][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 158
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "horizontal",
+        x: 6,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.horizontalBricks[5][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[5][0] : this.state.horizontalBricks[6][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 159
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "middle",
+        x: 6,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.horizontalBricks[6][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[6][0] : this.state.verticalBricks[6][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 160
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "horizontal",
+        x: 7,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.horizontalBricks[6][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[6][0] : this.state.horizontalBricks[7][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 161
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "middle",
+        x: 7,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.horizontalBricks[7][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[7][0] : this.state.verticalBricks[7][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 162
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3812,14 +3870,17 @@ function (_React$Component) {
           width: "50px",
           backgroundColor: this.state.horizontalBricks[7][0]
         },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157
+          lineNumber: 163
         }
       }))) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 167
         }
       }, "Loading game..."));
     }
@@ -4010,7 +4071,7 @@ var store = Object(__WEBPACK_IMPORTED_MODULE_1_redux__["b" /* createStore */])(_
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/game.js");
@@ -4018,7 +4079,7 @@ module.exports = __webpack_require__("./pages/game.js");
 
 /***/ })
 
-},[4])
+},[3])
           return { page: comp.default }
         })
       ;
