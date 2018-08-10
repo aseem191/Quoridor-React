@@ -1,99 +1,18 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete installedModules[moduleId];
-/******/ 		}
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "./components/urlname.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony default export */ __webpack_exports__["a"] = ("https://quoridorbackend.herokuapp.com");
-
-/***/ }),
+webpackHotUpdate(5,{
 
 /***/ "./pages/game.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("next/link");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("./node_modules/next/link.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_urlname_js__ = __webpack_require__("./components/urlname.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux__ = __webpack_require__("./node_modules/react-redux/es/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__page_js__ = __webpack_require__("./pages/page.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__redux_actions_js__ = __webpack_require__("./redux/actions.js");
 var _jsxFileName = "C:\\Users\\Aseem\\React Projects\\ReactQuoridor\\pages\\game.js";
@@ -201,7 +120,7 @@ function (_React$Component) {
           verticalBricks: temparr
         });
       } else if (orientation == "horizontal") {
-        var temparr = this.state.horizontalBricks.slice();
+        var temparr = this.state.horizontalBricks[x][y] = this.state.brickHighlightedColor;
         temparr[x][y] = this.state.brickHighlightedColor;
         this.setState({
           horizontalBricks: temparr
@@ -220,26 +139,13 @@ function (_React$Component) {
       var x = event.currentTarget.getAttribute('x');
       var y = event.currentTarget.getAttribute('y');
       var orientation = event.currentTarget.getAttribute('orientation');
-      console.log("mouseover" + x + y + orientation);
 
       if (orientation == "vertical") {
-        var temparr = this.state.verticalBricks.slice();
-        temparr[x][y] = this.state.brickDefaultColor;
-        this.setState({
-          verticalBricks: temparr
-        });
+        this.state.verticalBricks[x][y] = this.state.brickDefaultColor;
       } else if (orientation == "horizontal") {
-        var temparr = this.state.horizontalBricks.slice();
-        temparr[x][y] = this.state.brickDefaultColor;
-        this.setState({
-          horizontalBricks: temparr
-        });
+        this.state.horizontalBricks[x][y] = this.state.brickDefaultColor;
       } else if (orientation == "middle") {
-        var temparr = this.state.verticalBricks.slice();
-        temparr[x][y] = this.state.brickDefaultColor;
-        this.setState({
-          verticalBricks: temparr
-        });
+        this.state.verticalBricks[x][y] = this.state.brickDefaultColor;
       }
     }
   }, {
@@ -248,19 +154,199 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 102
         }
       }, this.props.game ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 105
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 106
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 107
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 0,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 108
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 109
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 1,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[1][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 110
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 111
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 2,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[2][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 112
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 113
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 3,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[3][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 114
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 115
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 4,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[4][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 116
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 117
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        orientation: "vertical",
+        x: 5,
+        y: 0,
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[5][0]
+        },
+        onClick: this.clickBrick,
+        onMouseOver: this.brickMouseOver,
+        onMouseLeave: this.brickMouseLeave,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
           float: "left",
           display: "inline",
@@ -274,14 +360,14 @@ function (_React$Component) {
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
-        x: 0,
+        x: 6,
         y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "25px",
-          backgroundColor: this.state.verticalBricks[0][0]
+          backgroundColor: this.state.verticalBricks[6][0]
         },
         onClick: this.clickBrick,
         onMouseOver: this.brickMouseOver,
@@ -304,14 +390,14 @@ function (_React$Component) {
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
-        x: 1,
+        x: 7,
         y: 0,
         style: {
           float: "left",
           display: "inline",
           height: "50px",
           width: "25px",
-          backgroundColor: this.state.verticalBricks[1][0]
+          backgroundColor: this.state.verticalBricks[7][0]
         },
         onClick: this.clickBrick,
         onMouseOver: this.brickMouseOver,
@@ -332,203 +418,23 @@ function (_React$Component) {
           fileName: _jsxFileName,
           lineNumber: 123
         }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 2,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[2][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 124
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 125
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 3,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[3][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 126
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 127
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 4,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[4][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 128
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 129
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 5,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[5][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 130
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 131
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 6,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[6][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 132
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 133
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        orientation: "vertical",
-        x: 7,
-        y: 0,
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "25px",
-          backgroundColor: this.state.verticalBricks[7][0]
-        },
-        onClick: this.clickBrick,
-        onMouseOver: this.brickMouseOver,
-        onMouseLeave: this.brickMouseLeave,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 134
-        }
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          float: "left",
-          display: "inline",
-          height: "50px",
-          width: "50px",
-          backgroundColor: this.state.pieceColor
-        },
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 135
-        }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
           lineHeight: "320%"
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 137
+          lineNumber: 125
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 126
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 128
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -543,7 +449,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 141
+          lineNumber: 129
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -558,7 +464,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 142
+          lineNumber: 130
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -573,7 +479,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 143
+          lineNumber: 131
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -588,7 +494,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 132
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -603,7 +509,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 133
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -618,7 +524,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146
+          lineNumber: 134
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -633,7 +539,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147
+          lineNumber: 135
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -648,7 +554,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 148
+          lineNumber: 136
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -663,7 +569,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 149
+          lineNumber: 137
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -678,7 +584,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 150
+          lineNumber: 138
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -693,7 +599,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 151
+          lineNumber: 139
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -708,7 +614,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 152
+          lineNumber: 140
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -723,7 +629,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153
+          lineNumber: 141
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -738,7 +644,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 142
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -753,7 +659,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 143
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -768,7 +674,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 144
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -783,12 +689,12 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157
+          lineNumber: 145
         }
       }))) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 149
         }
       }, "Loading game..."));
     }
@@ -797,194 +703,30 @@ function (_React$Component) {
   return Game;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_5__page_js__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["connect"])(function (state) {
+/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_5__page_js__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(function (state) {
   return state;
 })(Game)));
+    (function (Component, route) {
+      if(!Component) return
+      if (false) return
+      module.hot.accept()
+      Component.__route = route
 
-/***/ }),
+      if (module.hot.status() === 'idle') return
 
-/***/ "./pages/page.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+      var components = next.router.components
+      for (var r in components) {
+        if (!components.hasOwnProperty(r)) continue
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__redux_store_js__ = __webpack_require__("./redux/store.js");
-var _jsxFileName = "C:\\Users\\Aseem\\React Projects\\ReactQuoridor\\pages\\page.js";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-var page = function page(Page) {
-  return (
-    /*#__PURE__*/
-    function (_React$Component) {
-      _inherits(PageWrapper, _React$Component);
-
-      function PageWrapper() {
-        _classCallCheck(this, PageWrapper);
-
-        return _possibleConstructorReturn(this, (PageWrapper.__proto__ || Object.getPrototypeOf(PageWrapper)).apply(this, arguments));
-      }
-
-      _createClass(PageWrapper, [{
-        key: "render",
-        value: function render() {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_redux__["Provider"], {
-            store: __WEBPACK_IMPORTED_MODULE_2__redux_store_js__["a" /* default */],
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 10
-            }
-          }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Page, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 11
-            }
-          }));
+        if (components[r].Component.__route === route) {
+          next.router.update(r, Component)
         }
-      }]);
-
-      return PageWrapper;
-    }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component)
-  );
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (page);
-
-/***/ }),
-
-/***/ "./redux/actions.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updateGame; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updateName; });
-var updateGame = function updateGame(game) {
-  return {
-    type: "UPDATEGAME",
-    payload: game
-  };
-};
-var updateName = function updateName(name) {
-  return {
-    type: "UPDATENAME",
-    payload: name
-  };
-};
-
-/***/ }),
-
-/***/ "./redux/rootReducer.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var initialState = {
-  game: null,
-  name: null
-};
-
-var rootReducer = function rootReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case "UPDATEGAME":
-      return _objectSpread({}, state, {
-        game: action.payload
-      });
-
-    case "UPDATENAME":
-      return _objectSpread({}, state, {
-        name: action.payload
-      });
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (rootReducer);
-
-/***/ }),
-
-/***/ "./redux/store.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rootReducer_js__ = __webpack_require__("./redux/rootReducer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux__ = __webpack_require__("redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux__);
-
-
-var store = Object(__WEBPACK_IMPORTED_MODULE_1_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_0__rootReducer_js__["a" /* default */]);
-/* harmony default export */ __webpack_exports__["a"] = (store);
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/game.js");
-
-
-/***/ }),
-
-/***/ "isomorphic-unfetch":
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-unfetch");
-
-/***/ }),
-
-/***/ "next/link":
-/***/ (function(module, exports) {
-
-module.exports = require("next/link");
-
-/***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-
-/***/ "react-redux":
-/***/ (function(module, exports) {
-
-module.exports = require("react-redux");
-
-/***/ }),
-
-/***/ "redux":
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
+      }
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/game")
+  
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ })
 
-/******/ });
-//# sourceMappingURL=game.js.map
+})
+//# sourceMappingURL=5.fb120fc145afd3a17877.hot-update.js.map

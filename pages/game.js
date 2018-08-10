@@ -8,6 +8,10 @@ import { updateGame, updateName } from "../redux/actions.js";
 class Game extends React.Component{
 	constructor(props){
 		super(props);
+		this.brickMouseOver = this.brickMouseOver.bind(this);
+		this.brickMouseLeave = this.brickMouseLeave.bind(this);
+		this.clickBrick = this.clickBrick.bind(this);
+
 		var arr = [];
 		for(var x = 0; x < 8; x++){
 			arr[x] = [];
@@ -19,6 +23,9 @@ class Game extends React.Component{
 
 		this.state = {
 			pieceColor: "#555",
+			brickDefaultColor: "#4286f4",
+			brickExistsColor: "#eda034",
+			brickHighlightedColor: "#000863",
 			verticalBricks: arr.slice(),
 			horizontalBricks: arr.slice(),
 		}
@@ -39,9 +46,70 @@ class Game extends React.Component{
 		
 	}
 
+
+	clickBrick(event){
+
+	}
+
+	brickMouseOver(event){
+
+		var x = event.currentTarget.getAttribute('x');
+		var y = event.currentTarget.getAttribute('y');
+		var orientation = event.currentTarget.getAttribute('orientation');
+		console.log("mouseover" + x + y + orientation)
+		if(orientation == "vertical"){
+			var temparr = this.state.verticalBricks.slice();
+			temparr[x][y] = this.state.brickHighlightedColor;
+			this.setState({
+				verticalBricks: temparr
+			})
+		}
+		else if(orientation == "horizontal"){
+			var temparr = this.state.horizontalBricks.slice();
+			temparr[x][y] = this.state.brickHighlightedColor;
+			this.setState({
+				horizontalBricks: temparr
+			})
+		}
+		else if(orientation == "middle"){
+			var temparr = this.state.verticalBricks.slice();
+			temparr[x][y] = this.state.brickHighlightedColor;
+			this.setState({
+				verticalBricks: temparr
+			})
+		}
+	}
+
+	brickMouseLeave(event){
+		var x = event.currentTarget.getAttribute('x');
+		var y = event.currentTarget.getAttribute('y');
+		var orientation = event.currentTarget.getAttribute('orientation');
+		console.log("mouseover" + x + y + orientation)
+		if(orientation == "vertical"){
+			var temparr = this.state.verticalBricks.slice();
+			temparr[x][y] = this.state.brickDefaultColor;
+			this.setState({
+				verticalBricks: temparr
+			})
+		}
+		else if(orientation == "horizontal"){
+			var temparr = this.state.horizontalBricks.slice();
+			temparr[x][y] = this.state.brickDefaultColor;
+			this.setState({
+				horizontalBricks: temparr
+			})
+		}
+		else if(orientation == "middle"){
+			var temparr = this.state.verticalBricks.slice();
+			temparr[x][y] = this.state.brickDefaultColor;
+			this.setState({
+				verticalBricks: temparr
+			})
+		}
+	}
+
 	
 	render(){
-		//Has game pieces
 		return(
 			<div>
 				{this.props.game ?
@@ -49,44 +117,44 @@ class Game extends React.Component{
 					<div>
 					<div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][0]}}></div>
+						<div orientation="vertical" x={0} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][1]}}></div>
+						<div orientation="vertical" x={1} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[1][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][2]}}></div>
+						<div orientation="vertical" x={2} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[2][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][3]}}></div>
+						<div orientation="vertical" x={3} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[3][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][4]}}></div>
+						<div orientation="vertical" x={4} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[4][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][5]}}></div>
+						<div orientation="vertical" x={5} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[5][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][6]}}></div>
+						<div orientation="vertical" x={6} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[6][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][7]}}></div>
+						<div orientation="vertical" x={7} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[7][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
 					</div>
 					<div style={{lineHeight: "320%"}}>
 						<br/>
 					</div>
 					<div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][0]}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][1]}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][2]}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][3]}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][4]}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][5]}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][6]}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][7]}}></div>
-						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div orientation="horizontal" x={0} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[0][0]}}></div>
+						<div orientation="middle" x={0} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[0][0] == this.state.brickExistsColor ? this.state.horizontalBricks[0][0] : this.state.verticalBricks[0][0]}}></div>
+						<div orientation="horizontal" x={1} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[0][0] == this.state.brickExistsColor ? this.state.horizontalBricks[0][0] : this.state.horizontalBricks[1][0]}}></div>
+						<div orientation="middle" x={1} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[1][0] == this.state.brickExistsColor ? this.state.horizontalBricks[1][0] : this.state.verticalBricks[1][0]}}></div>
+						<div orientation="horizontal" x={2} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[1][0] == this.state.brickExistsColor ? this.state.horizontalBricks[1][0] : this.state.horizontalBricks[2][0]}}></div>
+						<div orientation="middle" x={2} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[2][0] == this.state.brickExistsColor ? this.state.horizontalBricks[2][0] : this.state.verticalBricks[2][0]}}></div>
+						<div orientation="horizontal" x={3} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[2][0] == this.state.brickExistsColor ? this.state.horizontalBricks[2][0] : this.state.horizontalBricks[3][0]}}></div>
+						<div orientation="middle" x={3} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[3][0] == this.state.brickExistsColor ? this.state.horizontalBricks[3][0] : this.state.verticalBricks[3][0]}}></div>
+						<div orientation="horizontal" x={4} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[3][0] == this.state.brickExistsColor ? this.state.horizontalBricks[3][0] : this.state.horizontalBricks[4][0]}}></div>
+						<div orientation="middle" x={4} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[4][0] == this.state.brickExistsColor ? this.state.horizontalBricks[4][0] : this.state.verticalBricks[4][0]}}></div>
+						<div orientation="horizontal" x={5} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[4][0] == this.state.brickExistsColor ? this.state.horizontalBricks[4][0] : this.state.horizontalBricks[5][0]}}></div>
+						<div orientation="middle" x={5} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[5][0] == this.state.brickExistsColor ? this.state.horizontalBricks[5][0] : this.state.verticalBricks[5][0]}}></div>
+						<div orientation="horizontal" x={6} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[5][0] == this.state.brickExistsColor ? this.state.horizontalBricks[5][0] : this.state.horizontalBricks[6][0]}}></div>
+						<div orientation="middle" x={6} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[6][0] == this.state.brickExistsColor ? this.state.horizontalBricks[6][0] : this.state.verticalBricks[6][0]}}></div>
+						<div orientation="horizontal" x={7} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[6][0] == this.state.brickExistsColor ? this.state.horizontalBricks[6][0] : this.state.horizontalBricks[7][0]}}></div>
+						<div orientation="middle" x={7} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[7][0] == this.state.brickExistsColor ? this.state.horizontalBricks[7][0] : this.state.verticalBricks[7][0]}}></div>
+						<div orientation="horizontal" x={7} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[7][0]}}></div>
 					</div>
 					</div>
 				)
