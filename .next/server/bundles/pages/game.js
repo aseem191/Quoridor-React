@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -131,6 +131,21 @@ function (_React$Component) {
     _classCallCheck(this, Game);
 
     _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this, props));
+    var arr = [];
+
+    for (var x = 0; x < 8; x++) {
+      arr[x] = [];
+
+      for (var y = 0; y < 8; y++) {
+        arr[x][y] = "#4286f4";
+      }
+    }
+
+    _this.state = {
+      pieceColor: "#555",
+      verticalBricks: arr.slice(),
+      horizontalBricks: arr.slice()
+    };
     var params = {
       uname: _this.props.name
     };
@@ -169,40 +184,448 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 46
         }
       }, this.props.game ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        style: {
-          display: "inline"
-        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 49
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 50
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
+          float: "left",
+          display: "inline",
           height: "50px",
           width: "50px",
-          backgroundColor: "#555"
+          backgroundColor: this.state.pieceColor
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 51
         }
-      }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
+          float: "left",
+          display: "inline",
           height: "50px",
-          width: "50px",
-          backgroundColor: "#555"
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][0]
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 52
         }
-      })) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 53
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][1]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 54
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][2]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 56
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 57
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][3]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 58
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][4]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 60
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 61
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][5]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 62
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 63
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][6]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 64
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][7]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 66
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "50px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        }
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          lineHeight: "320%"
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 70
+        }
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 72
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 73
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][0]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 74
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 75
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][1]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 76
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 77
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][2]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 78
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][3]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][4]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 83
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][5]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 85
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][6]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 86
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 87
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "25px",
+          backgroundColor: this.state.verticalBricks[0][7]
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 88
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          float: "left",
+          display: "inline",
+          height: "25px",
+          width: "50px",
+          backgroundColor: this.state.pieceColor
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89
+        }
+      }))) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 93
         }
       }, "Loading game..."));
     }
@@ -357,7 +780,7 @@ var store = Object(__WEBPACK_IMPORTED_MODULE_1_redux__["createStore"])(__WEBPACK
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/game.js");

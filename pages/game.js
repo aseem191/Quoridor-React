@@ -8,6 +8,21 @@ import { updateGame, updateName } from "../redux/actions.js";
 class Game extends React.Component{
 	constructor(props){
 		super(props);
+		var arr = [];
+		for(var x = 0; x < 8; x++){
+			arr[x] = [];
+			for(var y = 0; y < 8; y++){
+				arr[x][y] = "#4286f4";
+			}
+		}
+
+
+		this.state = {
+			pieceColor: "#555",
+			verticalBricks: arr.slice(),
+			horizontalBricks: arr.slice(),
+		}
+
 		var params = {uname: this.props.name}
 		if(!this.props.game){
 			fetch(urlname + "/player", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
@@ -31,7 +46,49 @@ class Game extends React.Component{
 			<div>
 				{this.props.game ?
 				(
-					<div style={{display: "inline"}}><div style={{height: "50px", width: "50px", backgroundColor: "#555"}}></div> <div style={{height: "50px", width: "50px", backgroundColor: "#555"}}></div></div>
+					<div>
+					<div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][0]}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][1]}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][2]}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][3]}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][4]}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][5]}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][6]}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][7]}}></div>
+						<div style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+					</div>
+					<div style={{lineHeight: "320%"}}>
+						<br/>
+					</div>
+					<div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][0]}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][1]}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][2]}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][3]}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][4]}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][5]}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][6]}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.verticalBricks[0][7]}}></div>
+						<div style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.pieceColor}}></div>
+					</div>
+					</div>
 				)
 				: <h3>Loading game...</h3>
 				}
