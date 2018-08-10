@@ -3276,36 +3276,126 @@ function (_React$Component) {
   }, {
     key: "squareMouseOver",
     value: function squareMouseOver(event) {
+      var playing = "";
+
+      if (this.props.game.PlayerTurn == 1) {
+        playing = this.props.game.Player1;
+      } else {
+        playing = this.props.game.Player2;
+      }
+
       if (this.props.game) {
-        if (this.props.game.PlayerTurn == this.props.name) {}
+        if (playing == this.props.name) {}
       }
     }
   }, {
     key: "squareMouseLeave",
     value: function squareMouseLeave(event) {
+      var playing = "";
+
+      if (this.props.game.PlayerTurn == 1) {
+        playing = this.props.game.Player1;
+      } else {
+        playing = this.props.game.Player2;
+      }
+
       if (this.props.game) {
-        if (this.props.game.PlayerTurn == this.props.name) {}
+        if (playing == this.props.name) {}
       }
     }
   }, {
     key: "clickSquare",
     value: function clickSquare(event) {
+      var playing = "";
+
+      if (this.props.game.PlayerTurn == 1) {
+        playing = this.props.game.Player1;
+      } else {
+        playing = this.props.game.Player2;
+      }
+
       if (this.props.game) {
-        if (this.props.game.PlayerTurn == this.props.name) {}
+        if (playing == this.props.name) {}
       }
     }
   }, {
     key: "clickBrick",
     value: function clickBrick(event) {
+      var _this4 = this;
+
+      var playing = "";
+
+      if (this.props.game.PlayerTurn == 1) {
+        playing = this.props.game.Player1;
+      } else {
+        playing = this.props.game.Player2;
+      }
+
       if (this.props.game) {
-        if (this.props.game.PlayerTurn == this.props.name) {}
+        if (playing == this.props.name) {
+          var Vertical = true;
+
+          if (event.currentTarget.getAttribute('orientation') == "vertical") {} else {
+            Vertical = false;
+          }
+
+          var params = {
+            id: this.props.gameID,
+            player: playing,
+            isBrick: true,
+            brick: {
+              vertical: Vertical,
+              x: event.currentTarget.getAttribute('x'),
+              y: event.currentTarget.getAttribute('y')
+            }
+          };
+          __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/move", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+          }).then(function (response) {
+            return response.json();
+          }).then(function (data) {
+            console.log("move response is " + JSON.stringify(data));
+
+            if (!data.error) {
+              if (event.currentTarget.getAttribute('orientation') == "vertical") {
+                var temparr = _this4.state.verticalBricks.slice();
+
+                temparr[event.currentTarget.getAttribute('x')][event.currentTarget.getAttribute('y')] = _this4.state.brickExistsColor;
+
+                _this4.setState({
+                  verticalBricks: temparr
+                });
+              } else {
+                var temparr = _this4.state.horizontalBricks.slice();
+
+                temparr[event.currentTarget.getAttribute('x')][event.currentTarget.getAttribute('y')] = _this4.state.brickExistsColor;
+
+                _this4.setState({
+                  horizontalBricks: temparr
+                });
+              }
+            }
+          });
+        }
       }
     }
   }, {
     key: "brickMouseOver",
     value: function brickMouseOver(event) {
+      var playing = "";
+
+      if (this.props.game.PlayerTurn == 1) {
+        playing = this.props.game.Player1;
+      } else {
+        playing = this.props.game.Player2;
+      }
+
       if (this.props.game) {
-        if (this.props.game.PlayerTurn == this.props.name) {
+        if (playing == this.props.name) {
           var x = event.currentTarget.getAttribute('x');
           var y = event.currentTarget.getAttribute('y');
           var orientation = event.currentTarget.getAttribute('orientation');
@@ -3335,8 +3425,16 @@ function (_React$Component) {
   }, {
     key: "brickMouseLeave",
     value: function brickMouseLeave(event) {
+      var playing = "";
+
+      if (this.props.game.PlayerTurn == 1) {
+        playing = this.props.game.Player1;
+      } else {
+        playing = this.props.game.Player2;
+      }
+
       if (this.props.game) {
-        if (this.props.game.PlayerTurn == this.props.name) {
+        if (playing == this.props.name) {
           var x = event.currentTarget.getAttribute('x');
           var y = event.currentTarget.getAttribute('y');
           var orientation = event.currentTarget.getAttribute('orientation');
@@ -3370,17 +3468,71 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 192
+          lineNumber: 276
         }
       }, this.props.game ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 195
+          lineNumber: 279
+        }
+      }, this.props.game.Player2 ? this.props.game.PlayerTurn == 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 283
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 283
+        }
+      }, "It's ", this.props.game.Player1, "'s turn! "), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 283
+        }
+      }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 283
+        }
+      })) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 284
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 284
+        }
+      }, "It's ", this.props.game.Player2, "'s turn! "), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 284
+        }
+      }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 284
+        }
+      })) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 285
+        }
+      }, " Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like \uD83D\uDE09 "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          backgroundColor: this.state.brickDefaultColor,
+          width: "650px"
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 288
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 196
+          lineNumber: 289
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -3397,7 +3549,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 197
+          lineNumber: 290
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3415,7 +3567,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 198
+          lineNumber: 291
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -3432,7 +3584,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 199
+          lineNumber: 292
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3450,7 +3602,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 200
+          lineNumber: 293
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -3467,7 +3619,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 201
+          lineNumber: 294
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3485,7 +3637,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 202
+          lineNumber: 295
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -3502,7 +3654,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 203
+          lineNumber: 296
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3520,7 +3672,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 204
+          lineNumber: 297
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -3537,7 +3689,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 205
+          lineNumber: 298
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3555,7 +3707,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 206
+          lineNumber: 299
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -3572,7 +3724,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 207
+          lineNumber: 300
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3590,7 +3742,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 208
+          lineNumber: 301
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -3607,7 +3759,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 209
+          lineNumber: 302
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3625,7 +3777,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 210
+          lineNumber: 303
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -3642,7 +3794,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 211
+          lineNumber: 304
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3660,7 +3812,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 212
+          lineNumber: 305
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -3677,25 +3829,25 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 213
+          lineNumber: 306
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
-          lineHeight: "315%"
+          lineHeight: "50px"
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 215
+          lineNumber: 308
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 216
+          lineNumber: 309
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 218
+          lineNumber: 311
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3713,7 +3865,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 219
+          lineNumber: 312
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3731,7 +3883,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 220
+          lineNumber: 313
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3749,7 +3901,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 221
+          lineNumber: 314
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3767,7 +3919,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 222
+          lineNumber: 315
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3785,7 +3937,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 223
+          lineNumber: 316
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3803,7 +3955,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 224
+          lineNumber: 317
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3821,7 +3973,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 225
+          lineNumber: 318
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3839,7 +3991,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 226
+          lineNumber: 319
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3857,7 +4009,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 227
+          lineNumber: 320
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3875,7 +4027,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 228
+          lineNumber: 321
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3893,7 +4045,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 229
+          lineNumber: 322
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3911,7 +4063,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 230
+          lineNumber: 323
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3929,7 +4081,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 231
+          lineNumber: 324
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3947,7 +4099,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 232
+          lineNumber: 325
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3965,7 +4117,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 233
+          lineNumber: 326
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3983,7 +4135,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 234
+          lineNumber: 327
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4001,12 +4153,25 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 235
+          lineNumber: 328
         }
-      }))) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        style: {
+          lineHeight: "25px"
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 239
+          lineNumber: 330
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 331
+        }
+      })))) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 338
         }
       }, "Loading game..."));
     }

@@ -88,41 +88,117 @@ class Game extends React.Component{
 
 
 	squareMouseOver(event){
+		var playing = "";
+		if(this.props.game.PlayerTurn == 1){
+			playing = this.props.game.Player1;
+		}
+		else{
+			playing = this.props.game.Player2;
+		}
+
 		if(this.props.game){
-			if(this.props.game.PlayerTurn == this.props.name){
+			if(playing == this.props.name){
 				
 			}
 		}
 	}
 
 	squareMouseLeave(event){
+		var playing = "";
+		if(this.props.game.PlayerTurn == 1){
+			playing = this.props.game.Player1;
+		}
+		else{
+			playing = this.props.game.Player2;
+		}
+
 		if(this.props.game){
-			if(this.props.game.PlayerTurn == this.props.name){
+			if(playing == this.props.name){
 				
 			}
 		}
 	}
 
 	clickSquare(event){
+		var playing = "";
+		if(this.props.game.PlayerTurn == 1){
+			playing = this.props.game.Player1;
+		}
+		else{
+			playing = this.props.game.Player2;
+		}
+
 		if(this.props.game){
-			if(this.props.game.PlayerTurn == this.props.name){
+			if(playing == this.props.name){
 				
 			}
 		}
 	}
 
 	clickBrick(event){
+		var playing = "";
+		if(this.props.game.PlayerTurn == 1){
+			playing = this.props.game.Player1;
+		}
+		else{
+			playing = this.props.game.Player2;
+		}
+
 		if(this.props.game){
-			if(this.props.game.PlayerTurn == this.props.name){
-				
+			if(playing == this.props.name){
+				var Vertical = true;
+				if(event.currentTarget.getAttribute('orientation') == "vertical"){
+				}
+				else{
+					Vertical = false;
+				}
+
+				var params = {
+					id: this.props.gameID,
+					player: playing,
+					isBrick: true,
+					brick: {
+						vertical: Vertical,
+						x: event.currentTarget.getAttribute('x'),
+						y: event.currentTarget.getAttribute('y')
+					}
+				}
+
+				fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+					console.log("move response is " + JSON.stringify(data))
+					if(!data.error){
+						if(event.currentTarget.getAttribute('orientation') == "vertical"){
+							var temparr = this.state.verticalBricks.slice();
+							temparr[event.currentTarget.getAttribute('x')][event.currentTarget.getAttribute('y')] = this.state.brickExistsColor;
+							this.setState({
+								verticalBricks: temparr
+							})
+						}
+						else{
+							var temparr = this.state.horizontalBricks.slice();
+							temparr[event.currentTarget.getAttribute('x')][event.currentTarget.getAttribute('y')] = this.state.brickExistsColor;
+							this.setState({
+								horizontalBricks: temparr
+							})
+						}
+						
+					}
+				})
 			}
 		}
 	}
 
 	brickMouseOver(event){
+		var playing = "";
+		if(this.props.game.PlayerTurn == 1){
+			playing = this.props.game.Player1;
+		}
+		else{
+			playing = this.props.game.Player2;
+		}
 
 		if(this.props.game){
-			if(this.props.game.PlayerTurn == this.props.name){
+			if(playing == this.props.name){
 				var x = event.currentTarget.getAttribute('x');
 				var y = event.currentTarget.getAttribute('y');
 				var orientation = event.currentTarget.getAttribute('orientation');
@@ -154,8 +230,16 @@ class Game extends React.Component{
 	}
 
 	brickMouseLeave(event){
+		var playing = "";
+		if(this.props.game.PlayerTurn == 1){
+			playing = this.props.game.Player1;
+		}
+		else{
+			playing = this.props.game.Player2;
+		}
+
 		if(this.props.game){
-			if(this.props.game.PlayerTurn == this.props.name){
+			if(playing == this.props.name){
 				var x = event.currentTarget.getAttribute('x');
 				var y = event.currentTarget.getAttribute('y');
 				var orientation = event.currentTarget.getAttribute('orientation');
@@ -193,6 +277,15 @@ class Game extends React.Component{
 				{this.props.game ?
 				(
 					<div>
+
+					{this.props.game.Player2 ?
+						(this.props.game.PlayerTurn == 1 ?
+						<div><h2>It's {this.props.game.Player1}'s turn! </h2> <br/> <br/></div>
+						: <div><h2>It's {this.props.game.Player2}'s turn! </h2> <br/> <br/></div>)
+						: <h4> Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like 😉 </h4>
+					}
+					
+					<div style={{backgroundColor: this.state.brickDefaultColor, width: "650px"}}>
 					<div>
 						<div x={0} y={0} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[0][0] == 1 ? this.state.player1Color : (this.state.playerArray[0][0] == 2 ? this.state.player2Color : this.state.squareColor)}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
 						<div orientation="vertical" x={0} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
@@ -212,7 +305,7 @@ class Game extends React.Component{
 						<div orientation="vertical" x={7} y={0} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[7][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={8} y={0} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[8][0] == 1 ? this.state.player1Color : (this.state.playerArray[8][0] == 2 ? this.state.player2Color : this.state.squareColor)}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
 					</div>
-					<div style={{lineHeight: "315%"}}>
+					<div style={{lineHeight: "50px"}}>
 						<br/>
 					</div>
 					<div>
@@ -234,10 +327,17 @@ class Game extends React.Component{
 						<div orientation="middle" x={7} y={0} style={{float: "left", display: "inline", height: "25px", width: "25px", backgroundColor: this.state.horizontalBricks[7][0] != this.state.brickDefaultColor ? this.state.horizontalBricks[7][0] : this.state.verticalBricks[7][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div orientation="horizontal" x={7} y={0} style={{float: "left", display: "inline", height: "25px", width: "50px", backgroundColor: this.state.horizontalBricks[7][0]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 					</div>
+					<div style={{lineHeight: "25px"}}>
+						<br/>
+					</div>
+
+					</div>
+
 					</div>
 				)
 				: <h3>Loading game...</h3>
 				}
+
 				
 			</div>
 		)
