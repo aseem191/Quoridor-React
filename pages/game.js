@@ -78,6 +78,7 @@ class Game extends React.Component{
 	fetchGame(){
 		if(this.props.gameID){
 			fetch(urlname + "/game/" + this.props.gameID).then(response => response.json()).then(data => {
+				console.log("fetching" + JSON.stringify(data))
 				var x1 = this.props.game.Player1x;
 				var y1 = this.props.game.Player1y;
 				var x2 = this.props.game.Player2x;
@@ -291,30 +292,7 @@ class Game extends React.Component{
 										y: event.currentTarget.getAttribute('y')
 									}
 
-									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
-										console.log("move response is " + JSON.stringify(data))
-										if(!data.error){
-											this.setState({
-												errorMsg: ""
-											})
-										}
-										else{
-											this.setState({
-												errorMsg: data.response
-											})
-										}
-									})
-								}
-							}
-							else if(Math.abs(this.props.game.Player1y - event.currentTarget.getAttribute('y')) == 1){
-								if(Math.abs(this.props.game.Player1x - event.currentTarget.getAttribute('x')) == 0){
-									var params = {
-										id: this.props.gameID,
-										player: playing,
-										isBrick: false,
-										x: event.currentTarget.getAttribute('x'),
-										y: event.currentTarget.getAttribute('y')
-									}
+									clearInterval(this.interval);
 
 									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 										console.log("move response is " + JSON.stringify(data))
@@ -328,6 +306,37 @@ class Game extends React.Component{
 												errorMsg: data.response
 											})
 										}
+
+										this.interval = setInterval(() => this.fetchGame(), 2000);
+									})
+								}
+							}
+							else if(Math.abs(this.props.game.Player1y - event.currentTarget.getAttribute('y')) == 1){
+								if(Math.abs(this.props.game.Player1x - event.currentTarget.getAttribute('x')) == 0){
+									var params = {
+										id: this.props.gameID,
+										player: playing,
+										isBrick: false,
+										x: event.currentTarget.getAttribute('x'),
+										y: event.currentTarget.getAttribute('y')
+									}
+
+									clearInterval(this.interval);
+
+									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+										console.log("move response is " + JSON.stringify(data))
+										if(!data.error){
+											this.setState({
+												errorMsg: ""
+											})
+										}
+										else{
+											this.setState({
+												errorMsg: data.response
+											})
+										}
+
+										this.interval = setInterval(() => this.fetchGame(), 2000);
 									})
 								}
 							}
@@ -345,30 +354,7 @@ class Game extends React.Component{
 										y: event.currentTarget.getAttribute('y')
 									}
 
-									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
-										console.log("move response is " + JSON.stringify(data))
-										if(!data.error){
-											this.setState({
-												errorMsg: ""
-											})
-										}
-										else{
-											this.setState({
-												errorMsg: data.response
-											})
-										}
-									})
-								}
-							}
-							else if(Math.abs(this.props.game.Player2y - event.currentTarget.getAttribute('y')) == 1){
-								if(Math.abs(this.props.game.Player2x - event.currentTarget.getAttribute('x')) == 0){
-									var params = {
-										id: this.props.gameID,
-										player: playing,
-										isBrick: false,
-										x: event.currentTarget.getAttribute('x'),
-										y: event.currentTarget.getAttribute('y')
-									}
+									clearInterval(this.interval);
 
 									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 										console.log("move response is " + JSON.stringify(data))
@@ -382,6 +368,37 @@ class Game extends React.Component{
 												errorMsg: data.response
 											})
 										}
+
+										this.interval = setInterval(() => this.fetchGame(), 2000);
+									})
+								}
+							}
+							else if(Math.abs(this.props.game.Player2y - event.currentTarget.getAttribute('y')) == 1){
+								if(Math.abs(this.props.game.Player2x - event.currentTarget.getAttribute('x')) == 0){
+									var params = {
+										id: this.props.gameID,
+										player: playing,
+										isBrick: false,
+										x: event.currentTarget.getAttribute('x'),
+										y: event.currentTarget.getAttribute('y')
+									}
+
+									clearInterval(this.interval);
+
+									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+										console.log("move response is " + JSON.stringify(data))
+										if(!data.error){
+											this.setState({
+												errorMsg: ""
+											})
+										}
+										else{
+											this.setState({
+												errorMsg: data.response
+											})
+										}
+
+										this.interval = setInterval(() => this.fetchGame(), 2000);
 									})
 								}
 							}
@@ -423,8 +440,10 @@ class Game extends React.Component{
 						}
 					}
 
+					clearInterval(this.interval);
+
 					fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
-						console.log("move response is " + JSON.stringify(data))
+						console.log("brick response is " + JSON.stringify(data))
 						if(!data.error){
 							this.setState({
 								errorMsg: ""
@@ -435,6 +454,8 @@ class Game extends React.Component{
 								errorMsg: data.response
 							})
 						}
+
+						this.interval = setInterval(() => this.fetchGame(), 2000);
 					})
 				}
 			}

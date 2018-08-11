@@ -1,99 +1,18 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete installedModules[moduleId];
-/******/ 		}
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "./components/urlname.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony default export */ __webpack_exports__["a"] = ("https://quoridorbackend.herokuapp.com");
-
-/***/ }),
+webpackHotUpdate(5,{
 
 /***/ "./pages/game.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("next/link");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("./node_modules/next/link.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__("isomorphic-unfetch");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_urlname_js__ = __webpack_require__("./components/urlname.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux__ = __webpack_require__("./node_modules/react-redux/es/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__page_js__ = __webpack_require__("./pages/page.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__redux_actions_js__ = __webpack_require__("./redux/actions.js");
 var _jsxFileName = "C:\\Users\\Aseem\\React Projects\\ReactQuoridor\\pages\\game.js";
@@ -448,7 +367,6 @@ function (_React$Component) {
                       x: event.currentTarget.getAttribute('x'),
                       y: event.currentTarget.getAttribute('y')
                     };
-                    clearInterval(this.interval);
                     __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/move", {
                       method: 'POST',
                       headers: {
@@ -469,10 +387,6 @@ function (_React$Component) {
                           errorMsg: data.response
                         });
                       }
-
-                      _this4.interval = setInterval(function () {
-                        return _this4.fetchGame();
-                      }, 2000);
                     });
                   }
                 } else if (Math.abs(this.props.game.Player1y - event.currentTarget.getAttribute('y')) == 1) {
@@ -484,7 +398,6 @@ function (_React$Component) {
                       x: event.currentTarget.getAttribute('x'),
                       y: event.currentTarget.getAttribute('y')
                     };
-                    clearInterval(this.interval);
                     __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/move", {
                       method: 'POST',
                       headers: {
@@ -505,10 +418,6 @@ function (_React$Component) {
                           errorMsg: data.response
                         });
                       }
-
-                      _this4.interval = setInterval(function () {
-                        return _this4.fetchGame();
-                      }, 2000);
                     });
                   }
                 }
@@ -524,7 +433,6 @@ function (_React$Component) {
                       x: event.currentTarget.getAttribute('x'),
                       y: event.currentTarget.getAttribute('y')
                     };
-                    clearInterval(this.interval);
                     __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/move", {
                       method: 'POST',
                       headers: {
@@ -545,10 +453,6 @@ function (_React$Component) {
                           errorMsg: data.response
                         });
                       }
-
-                      _this4.interval = setInterval(function () {
-                        return _this4.fetchGame();
-                      }, 2000);
                     });
                   }
                 } else if (Math.abs(this.props.game.Player2y - event.currentTarget.getAttribute('y')) == 1) {
@@ -560,7 +464,6 @@ function (_React$Component) {
                       x: event.currentTarget.getAttribute('x'),
                       y: event.currentTarget.getAttribute('y')
                     };
-                    clearInterval(this.interval);
                     __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/move", {
                       method: 'POST',
                       headers: {
@@ -581,10 +484,6 @@ function (_React$Component) {
                           errorMsg: data.response
                         });
                       }
-
-                      _this4.interval = setInterval(function () {
-                        return _this4.fetchGame();
-                      }, 2000);
                     });
                   }
                 }
@@ -626,7 +525,6 @@ function (_React$Component) {
                 y: event.currentTarget.getAttribute('y')
               }
             };
-            clearInterval(this.interval);
             __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/move", {
               method: 'POST',
               headers: {
@@ -647,10 +545,6 @@ function (_React$Component) {
                   errorMsg: data.response
                 });
               }
-
-              _this5.interval = setInterval(function () {
-                return _this5.fetchGame();
-              }, 2000);
             });
           }
         }
@@ -764,62 +658,62 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 568
+          lineNumber: 548
         }
       }, this.props.game ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 571
+          lineNumber: 551
         }
       }, this.state.errorMsg == "" ? null : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 575
+          lineNumber: 555
         }
       }, "this.state.errorMsg"), this.props.game.Player2 ? this.props.game.PlayerTurn == 1 ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 580
+          lineNumber: 560
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 580
+          lineNumber: 560
         }
       }, "It's ", this.props.game.Player1, "'s turn! "), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 580
+          lineNumber: 560
         }
       }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 580
+          lineNumber: 560
         }
       })) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 581
+          lineNumber: 561
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 581
+          lineNumber: 561
         }
       }, "It's ", this.props.game.Player2, "'s turn! "), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 581
+          lineNumber: 561
         }
       }), " ", __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 581
+          lineNumber: 561
         }
       })) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 582
+          lineNumber: 562
         }
       }, " Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like \uD83D\uDE09 "), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -828,12 +722,12 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 585
+          lineNumber: 565
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 586
+          lineNumber: 566
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -850,7 +744,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 587
+          lineNumber: 567
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -868,7 +762,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 588
+          lineNumber: 568
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -885,7 +779,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 589
+          lineNumber: 569
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -903,7 +797,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 590
+          lineNumber: 570
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -920,7 +814,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 591
+          lineNumber: 571
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -938,7 +832,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 592
+          lineNumber: 572
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -955,7 +849,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 593
+          lineNumber: 573
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -973,7 +867,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 594
+          lineNumber: 574
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -990,7 +884,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 595
+          lineNumber: 575
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1008,7 +902,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 596
+          lineNumber: 576
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -1025,7 +919,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 597
+          lineNumber: 577
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1043,7 +937,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 598
+          lineNumber: 578
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -1060,7 +954,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 599
+          lineNumber: 579
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1078,7 +972,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 600
+          lineNumber: 580
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -1095,7 +989,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 601
+          lineNumber: 581
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1113,7 +1007,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 602
+          lineNumber: 582
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -1130,7 +1024,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 603
+          lineNumber: 583
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -1138,17 +1032,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 605
+          lineNumber: 585
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 606
+          lineNumber: 586
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 608
+          lineNumber: 588
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1166,7 +1060,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 609
+          lineNumber: 589
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1184,7 +1078,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 610
+          lineNumber: 590
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1202,7 +1096,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 611
+          lineNumber: 591
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1220,7 +1114,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 612
+          lineNumber: 592
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1238,7 +1132,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 613
+          lineNumber: 593
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1256,7 +1150,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 614
+          lineNumber: 594
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1274,7 +1168,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 615
+          lineNumber: 595
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1292,7 +1186,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 616
+          lineNumber: 596
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1310,7 +1204,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 617
+          lineNumber: 597
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1328,7 +1222,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 618
+          lineNumber: 598
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1346,7 +1240,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 619
+          lineNumber: 599
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1364,7 +1258,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 620
+          lineNumber: 600
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1382,7 +1276,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 621
+          lineNumber: 601
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1400,7 +1294,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 622
+          lineNumber: 602
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1418,7 +1312,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 623
+          lineNumber: 603
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1436,7 +1330,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 624
+          lineNumber: 604
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1454,7 +1348,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 625
+          lineNumber: 605
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -1462,17 +1356,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 627
+          lineNumber: 607
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 628
+          lineNumber: 608
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 631
+          lineNumber: 611
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -1489,7 +1383,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 632
+          lineNumber: 612
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1507,7 +1401,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 633
+          lineNumber: 613
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -1524,7 +1418,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 634
+          lineNumber: 614
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1542,7 +1436,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 635
+          lineNumber: 615
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -1559,7 +1453,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 636
+          lineNumber: 616
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1577,7 +1471,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 637
+          lineNumber: 617
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -1594,7 +1488,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 638
+          lineNumber: 618
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1612,7 +1506,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 639
+          lineNumber: 619
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -1629,7 +1523,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 640
+          lineNumber: 620
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1647,7 +1541,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 641
+          lineNumber: 621
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -1664,7 +1558,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 642
+          lineNumber: 622
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1682,7 +1576,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 643
+          lineNumber: 623
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -1699,7 +1593,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 644
+          lineNumber: 624
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1717,7 +1611,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 645
+          lineNumber: 625
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -1734,7 +1628,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 646
+          lineNumber: 626
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -1752,7 +1646,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 647
+          lineNumber: 627
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -1769,7 +1663,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 648
+          lineNumber: 628
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -1777,17 +1671,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 650
+          lineNumber: 630
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 651
+          lineNumber: 631
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 653
+          lineNumber: 633
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1805,7 +1699,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 654
+          lineNumber: 634
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1823,7 +1717,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 655
+          lineNumber: 635
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1841,7 +1735,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 656
+          lineNumber: 636
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1859,7 +1753,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 657
+          lineNumber: 637
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1877,7 +1771,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 658
+          lineNumber: 638
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1895,7 +1789,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 659
+          lineNumber: 639
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1913,7 +1807,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 660
+          lineNumber: 640
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1931,7 +1825,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 661
+          lineNumber: 641
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1949,7 +1843,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 662
+          lineNumber: 642
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -1967,7 +1861,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 663
+          lineNumber: 643
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -1985,7 +1879,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 664
+          lineNumber: 644
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2003,7 +1897,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 665
+          lineNumber: 645
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2021,7 +1915,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 666
+          lineNumber: 646
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2039,7 +1933,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 667
+          lineNumber: 647
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2057,7 +1951,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 668
+          lineNumber: 648
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2075,7 +1969,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 669
+          lineNumber: 649
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2093,7 +1987,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 670
+          lineNumber: 650
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -2101,17 +1995,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 672
+          lineNumber: 652
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 673
+          lineNumber: 653
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 676
+          lineNumber: 656
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -2128,7 +2022,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 677
+          lineNumber: 657
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2146,7 +2040,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 678
+          lineNumber: 658
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -2163,7 +2057,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 679
+          lineNumber: 659
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2181,7 +2075,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 680
+          lineNumber: 660
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -2198,7 +2092,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 681
+          lineNumber: 661
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2216,7 +2110,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 682
+          lineNumber: 662
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -2233,7 +2127,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 683
+          lineNumber: 663
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2251,7 +2145,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 684
+          lineNumber: 664
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -2268,7 +2162,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 685
+          lineNumber: 665
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2286,7 +2180,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 686
+          lineNumber: 666
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -2303,7 +2197,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 687
+          lineNumber: 667
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2321,7 +2215,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 688
+          lineNumber: 668
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -2338,7 +2232,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 689
+          lineNumber: 669
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2356,7 +2250,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 690
+          lineNumber: 670
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -2373,7 +2267,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 691
+          lineNumber: 671
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2391,7 +2285,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 692
+          lineNumber: 672
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -2408,7 +2302,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 693
+          lineNumber: 673
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -2416,17 +2310,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 695
+          lineNumber: 675
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 696
+          lineNumber: 676
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 698
+          lineNumber: 678
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2444,7 +2338,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 699
+          lineNumber: 679
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2462,7 +2356,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 700
+          lineNumber: 680
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2480,7 +2374,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 701
+          lineNumber: 681
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2498,7 +2392,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 702
+          lineNumber: 682
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2516,7 +2410,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 703
+          lineNumber: 683
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2534,7 +2428,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 704
+          lineNumber: 684
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2552,7 +2446,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 705
+          lineNumber: 685
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2570,7 +2464,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 706
+          lineNumber: 686
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2588,7 +2482,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 707
+          lineNumber: 687
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2606,7 +2500,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 708
+          lineNumber: 688
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2624,7 +2518,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 709
+          lineNumber: 689
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2642,7 +2536,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 710
+          lineNumber: 690
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2660,7 +2554,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 711
+          lineNumber: 691
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2678,7 +2572,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 712
+          lineNumber: 692
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2696,7 +2590,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 713
+          lineNumber: 693
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -2714,7 +2608,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 714
+          lineNumber: 694
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -2732,7 +2626,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 715
+          lineNumber: 695
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -2740,17 +2634,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 717
+          lineNumber: 697
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 718
+          lineNumber: 698
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 721
+          lineNumber: 701
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -2767,7 +2661,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 722
+          lineNumber: 702
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2785,7 +2679,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 723
+          lineNumber: 703
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -2802,7 +2696,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 724
+          lineNumber: 704
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2820,7 +2714,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 725
+          lineNumber: 705
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -2837,7 +2731,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 726
+          lineNumber: 706
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2855,7 +2749,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 727
+          lineNumber: 707
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -2872,7 +2766,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 728
+          lineNumber: 708
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2890,7 +2784,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 729
+          lineNumber: 709
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -2907,7 +2801,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 730
+          lineNumber: 710
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2925,7 +2819,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 731
+          lineNumber: 711
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -2942,7 +2836,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 732
+          lineNumber: 712
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2960,7 +2854,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 733
+          lineNumber: 713
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -2977,7 +2871,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 734
+          lineNumber: 714
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -2995,7 +2889,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 735
+          lineNumber: 715
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -3012,7 +2906,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 736
+          lineNumber: 716
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3030,7 +2924,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 737
+          lineNumber: 717
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -3047,7 +2941,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 738
+          lineNumber: 718
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -3055,17 +2949,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 740
+          lineNumber: 720
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 741
+          lineNumber: 721
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 743
+          lineNumber: 723
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3083,7 +2977,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 744
+          lineNumber: 724
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3101,7 +2995,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 745
+          lineNumber: 725
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3119,7 +3013,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 746
+          lineNumber: 726
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3137,7 +3031,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 747
+          lineNumber: 727
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3155,7 +3049,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 748
+          lineNumber: 728
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3173,7 +3067,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 749
+          lineNumber: 729
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3191,7 +3085,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 750
+          lineNumber: 730
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3209,7 +3103,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 751
+          lineNumber: 731
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3227,7 +3121,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 752
+          lineNumber: 732
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3245,7 +3139,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 753
+          lineNumber: 733
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3263,7 +3157,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 754
+          lineNumber: 734
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3281,7 +3175,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 755
+          lineNumber: 735
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3299,7 +3193,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 756
+          lineNumber: 736
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3317,7 +3211,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 757
+          lineNumber: 737
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3335,7 +3229,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 758
+          lineNumber: 738
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3353,7 +3247,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 759
+          lineNumber: 739
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3371,7 +3265,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 760
+          lineNumber: 740
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -3379,17 +3273,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 762
+          lineNumber: 742
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 763
+          lineNumber: 743
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 766
+          lineNumber: 746
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -3406,7 +3300,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 767
+          lineNumber: 747
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3424,7 +3318,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 768
+          lineNumber: 748
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -3441,7 +3335,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 769
+          lineNumber: 749
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3459,7 +3353,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 770
+          lineNumber: 750
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -3476,7 +3370,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 771
+          lineNumber: 751
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3494,7 +3388,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 772
+          lineNumber: 752
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -3511,7 +3405,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 773
+          lineNumber: 753
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3529,7 +3423,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 774
+          lineNumber: 754
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -3546,7 +3440,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 775
+          lineNumber: 755
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3564,7 +3458,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 776
+          lineNumber: 756
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -3581,7 +3475,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 777
+          lineNumber: 757
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3599,7 +3493,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 778
+          lineNumber: 758
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -3616,7 +3510,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 779
+          lineNumber: 759
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3634,7 +3528,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 780
+          lineNumber: 760
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -3651,7 +3545,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 781
+          lineNumber: 761
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -3669,7 +3563,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 782
+          lineNumber: 762
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -3686,7 +3580,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 783
+          lineNumber: 763
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -3694,17 +3588,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 785
+          lineNumber: 765
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 786
+          lineNumber: 766
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 788
+          lineNumber: 768
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3722,7 +3616,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 789
+          lineNumber: 769
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3740,7 +3634,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 790
+          lineNumber: 770
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3758,7 +3652,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 791
+          lineNumber: 771
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3776,7 +3670,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 792
+          lineNumber: 772
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3794,7 +3688,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 793
+          lineNumber: 773
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3812,7 +3706,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 794
+          lineNumber: 774
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3830,7 +3724,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 795
+          lineNumber: 775
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3848,7 +3742,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 796
+          lineNumber: 776
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3866,7 +3760,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 797
+          lineNumber: 777
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3884,7 +3778,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 798
+          lineNumber: 778
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3902,7 +3796,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 799
+          lineNumber: 779
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3920,7 +3814,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 800
+          lineNumber: 780
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3938,7 +3832,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 801
+          lineNumber: 781
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3956,7 +3850,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 802
+          lineNumber: 782
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -3974,7 +3868,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 803
+          lineNumber: 783
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -3992,7 +3886,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 804
+          lineNumber: 784
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4010,7 +3904,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 805
+          lineNumber: 785
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -4018,17 +3912,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 807
+          lineNumber: 787
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 808
+          lineNumber: 788
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 811
+          lineNumber: 791
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -4045,7 +3939,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 812
+          lineNumber: 792
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4063,7 +3957,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 813
+          lineNumber: 793
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -4080,7 +3974,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 814
+          lineNumber: 794
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4098,7 +3992,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 815
+          lineNumber: 795
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -4115,7 +4009,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 816
+          lineNumber: 796
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4133,7 +4027,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 817
+          lineNumber: 797
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -4150,7 +4044,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 818
+          lineNumber: 798
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4168,7 +4062,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 819
+          lineNumber: 799
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -4185,7 +4079,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 820
+          lineNumber: 800
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4203,7 +4097,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 821
+          lineNumber: 801
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -4220,7 +4114,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 822
+          lineNumber: 802
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4238,7 +4132,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 823
+          lineNumber: 803
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -4255,7 +4149,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 824
+          lineNumber: 804
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4273,7 +4167,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 825
+          lineNumber: 805
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -4290,7 +4184,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 826
+          lineNumber: 806
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4308,7 +4202,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 827
+          lineNumber: 807
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -4325,7 +4219,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 828
+          lineNumber: 808
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -4333,17 +4227,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 830
+          lineNumber: 810
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 831
+          lineNumber: 811
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 833
+          lineNumber: 813
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4361,7 +4255,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 834
+          lineNumber: 814
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -4379,7 +4273,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 835
+          lineNumber: 815
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4397,7 +4291,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 836
+          lineNumber: 816
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -4415,7 +4309,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 837
+          lineNumber: 817
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4433,7 +4327,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 838
+          lineNumber: 818
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -4451,7 +4345,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 839
+          lineNumber: 819
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4469,7 +4363,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 840
+          lineNumber: 820
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -4487,7 +4381,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 841
+          lineNumber: 821
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4505,7 +4399,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 842
+          lineNumber: 822
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -4523,7 +4417,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 843
+          lineNumber: 823
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4541,7 +4435,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 844
+          lineNumber: 824
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -4559,7 +4453,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 845
+          lineNumber: 825
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4577,7 +4471,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 846
+          lineNumber: 826
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -4595,7 +4489,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 847
+          lineNumber: 827
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4613,7 +4507,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 848
+          lineNumber: 828
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -4631,7 +4525,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 849
+          lineNumber: 829
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -4649,7 +4543,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 850
+          lineNumber: 830
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -4657,17 +4551,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 852
+          lineNumber: 832
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 853
+          lineNumber: 833
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 856
+          lineNumber: 836
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -4684,7 +4578,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 857
+          lineNumber: 837
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4702,7 +4596,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 858
+          lineNumber: 838
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -4719,7 +4613,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 859
+          lineNumber: 839
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4737,7 +4631,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 860
+          lineNumber: 840
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -4754,7 +4648,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 861
+          lineNumber: 841
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4772,7 +4666,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 862
+          lineNumber: 842
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -4789,7 +4683,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 863
+          lineNumber: 843
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4807,7 +4701,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 864
+          lineNumber: 844
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -4824,7 +4718,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 865
+          lineNumber: 845
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4842,7 +4736,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 866
+          lineNumber: 846
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -4859,7 +4753,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 867
+          lineNumber: 847
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4877,7 +4771,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 868
+          lineNumber: 848
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -4894,7 +4788,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 869
+          lineNumber: 849
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4912,7 +4806,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 870
+          lineNumber: 850
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -4929,7 +4823,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 871
+          lineNumber: 851
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -4947,7 +4841,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 872
+          lineNumber: 852
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -4964,7 +4858,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 873
+          lineNumber: 853
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -4972,17 +4866,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 875
+          lineNumber: 855
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 876
+          lineNumber: 856
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 878
+          lineNumber: 858
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5000,7 +4894,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 879
+          lineNumber: 859
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5018,7 +4912,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 880
+          lineNumber: 860
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5036,7 +4930,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 881
+          lineNumber: 861
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5054,7 +4948,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 882
+          lineNumber: 862
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5072,7 +4966,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 883
+          lineNumber: 863
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5090,7 +4984,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 884
+          lineNumber: 864
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5108,7 +5002,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 885
+          lineNumber: 865
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5126,7 +5020,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 886
+          lineNumber: 866
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5144,7 +5038,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 887
+          lineNumber: 867
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5162,7 +5056,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 888
+          lineNumber: 868
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5180,7 +5074,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 889
+          lineNumber: 869
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5198,7 +5092,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 890
+          lineNumber: 870
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5216,7 +5110,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 891
+          lineNumber: 871
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5234,7 +5128,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 892
+          lineNumber: 872
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5252,7 +5146,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 893
+          lineNumber: 873
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5270,7 +5164,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 894
+          lineNumber: 874
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5288,7 +5182,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 895
+          lineNumber: 875
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -5296,17 +5190,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 897
+          lineNumber: 877
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 898
+          lineNumber: 878
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 901
+          lineNumber: 881
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -5323,7 +5217,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 902
+          lineNumber: 882
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5341,7 +5235,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 903
+          lineNumber: 883
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -5358,7 +5252,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 904
+          lineNumber: 884
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5376,7 +5270,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 905
+          lineNumber: 885
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -5393,7 +5287,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 906
+          lineNumber: 886
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5411,7 +5305,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 907
+          lineNumber: 887
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -5428,7 +5322,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 908
+          lineNumber: 888
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5446,7 +5340,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 909
+          lineNumber: 889
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -5463,7 +5357,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 910
+          lineNumber: 890
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5481,7 +5375,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 911
+          lineNumber: 891
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -5498,7 +5392,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 912
+          lineNumber: 892
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5516,7 +5410,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 913
+          lineNumber: 893
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -5533,7 +5427,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 914
+          lineNumber: 894
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5551,7 +5445,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 915
+          lineNumber: 895
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -5568,7 +5462,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 916
+          lineNumber: 896
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5586,7 +5480,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 917
+          lineNumber: 897
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -5603,7 +5497,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 918
+          lineNumber: 898
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -5611,17 +5505,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 920
+          lineNumber: 900
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 921
+          lineNumber: 901
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 923
+          lineNumber: 903
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5639,7 +5533,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 924
+          lineNumber: 904
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5657,7 +5551,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 925
+          lineNumber: 905
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5675,7 +5569,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 926
+          lineNumber: 906
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5693,7 +5587,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 927
+          lineNumber: 907
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5711,7 +5605,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 928
+          lineNumber: 908
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5729,7 +5623,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 929
+          lineNumber: 909
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5747,7 +5641,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 930
+          lineNumber: 910
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5765,7 +5659,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 931
+          lineNumber: 911
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5783,7 +5677,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 932
+          lineNumber: 912
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5801,7 +5695,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 933
+          lineNumber: 913
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5819,7 +5713,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 934
+          lineNumber: 914
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5837,7 +5731,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 935
+          lineNumber: 915
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5855,7 +5749,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 936
+          lineNumber: 916
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5873,7 +5767,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 937
+          lineNumber: 917
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5891,7 +5785,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 938
+          lineNumber: 918
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "middle",
@@ -5909,7 +5803,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 939
+          lineNumber: 919
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "horizontal",
@@ -5927,7 +5821,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 940
+          lineNumber: 920
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -5935,17 +5829,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 942
+          lineNumber: 922
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 943
+          lineNumber: 923
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 946
+          lineNumber: 926
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 0,
@@ -5962,7 +5856,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 947
+          lineNumber: 927
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -5980,7 +5874,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 948
+          lineNumber: 928
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 1,
@@ -5997,7 +5891,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 949
+          lineNumber: 929
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -6015,7 +5909,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 950
+          lineNumber: 930
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 2,
@@ -6032,7 +5926,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 951
+          lineNumber: 931
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -6050,7 +5944,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 952
+          lineNumber: 932
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 3,
@@ -6067,7 +5961,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 953
+          lineNumber: 933
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -6085,7 +5979,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 954
+          lineNumber: 934
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 4,
@@ -6102,7 +5996,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 955
+          lineNumber: 935
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -6120,7 +6014,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 956
+          lineNumber: 936
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 5,
@@ -6137,7 +6031,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 957
+          lineNumber: 937
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -6155,7 +6049,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 958
+          lineNumber: 938
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 6,
@@ -6172,7 +6066,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 959
+          lineNumber: 939
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -6190,7 +6084,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 960
+          lineNumber: 940
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 7,
@@ -6207,7 +6101,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 961
+          lineNumber: 941
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         orientation: "vertical",
@@ -6225,7 +6119,7 @@ function (_React$Component) {
         onMouseLeave: this.brickMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 962
+          lineNumber: 942
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         x: 8,
@@ -6242,7 +6136,7 @@ function (_React$Component) {
         onMouseLeave: this.squareMouseLeave,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 963
+          lineNumber: 943
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         style: {
@@ -6250,17 +6144,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 965
+          lineNumber: 945
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 966
+          lineNumber: 946
         }
       })))) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 974
+          lineNumber: 954
         }
       }, "Loading game..."));
     }
@@ -6269,207 +6163,30 @@ function (_React$Component) {
   return Game;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_5__page_js__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["connect"])(function (state) {
+/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_5__page_js__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(function (state) {
   return state;
 })(Game)));
+    (function (Component, route) {
+      if(!Component) return
+      if (false) return
+      module.hot.accept()
+      Component.__route = route
 
-/***/ }),
+      if (module.hot.status() === 'idle') return
 
-/***/ "./pages/page.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+      var components = next.router.components
+      for (var r in components) {
+        if (!components.hasOwnProperty(r)) continue
 
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__("react-redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__redux_store_js__ = __webpack_require__("./redux/store.js");
-var _jsxFileName = "C:\\Users\\Aseem\\React Projects\\ReactQuoridor\\pages\\page.js";
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-var page = function page(Page) {
-  return (
-    /*#__PURE__*/
-    function (_React$Component) {
-      _inherits(PageWrapper, _React$Component);
-
-      function PageWrapper() {
-        _classCallCheck(this, PageWrapper);
-
-        return _possibleConstructorReturn(this, (PageWrapper.__proto__ || Object.getPrototypeOf(PageWrapper)).apply(this, arguments));
-      }
-
-      _createClass(PageWrapper, [{
-        key: "render",
-        value: function render() {
-          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_redux__["Provider"], {
-            store: __WEBPACK_IMPORTED_MODULE_2__redux_store_js__["a" /* default */],
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 10
-            }
-          }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Page, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 11
-            }
-          }));
+        if (components[r].Component.__route === route) {
+          next.router.update(r, Component)
         }
-      }]);
-
-      return PageWrapper;
-    }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component)
-  );
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (page);
-
-/***/ }),
-
-/***/ "./redux/actions.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return updateGame; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return updateGameID; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return updateName; });
-var updateGame = function updateGame(game) {
-  return {
-    type: "UPDATEGAME",
-    payload: game
-  };
-};
-var updateGameID = function updateGameID(gameID) {
-  return {
-    type: "UPDATEGAMEID",
-    payload: gameID
-  };
-};
-var updateName = function updateName(name) {
-  return {
-    type: "UPDATENAME",
-    payload: name
-  };
-};
-
-/***/ }),
-
-/***/ "./redux/rootReducer.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var initialState = {
-  game: null,
-  name: null,
-  gameID: null
-};
-
-var rootReducer = function rootReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  switch (action.type) {
-    case "UPDATEGAME":
-      return _objectSpread({}, state, {
-        game: action.payload
-      });
-
-    case "UPDATEGAMEID":
-      return _objectSpread({}, state, {
-        gameID: action.payload
-      });
-
-    case "UPDATENAME":
-      return _objectSpread({}, state, {
-        name: action.payload
-      });
-
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (rootReducer);
-
-/***/ }),
-
-/***/ "./redux/store.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__rootReducer_js__ = __webpack_require__("./redux/rootReducer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux__ = __webpack_require__("redux");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_redux__);
-
-
-var store = Object(__WEBPACK_IMPORTED_MODULE_1_redux__["createStore"])(__WEBPACK_IMPORTED_MODULE_0__rootReducer_js__["a" /* default */]);
-/* harmony default export */ __webpack_exports__["a"] = (store);
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/game.js");
-
-
-/***/ }),
-
-/***/ "isomorphic-unfetch":
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-unfetch");
-
-/***/ }),
-
-/***/ "next/link":
-/***/ (function(module, exports) {
-
-module.exports = require("next/link");
-
-/***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-
-/***/ "react-redux":
-/***/ (function(module, exports) {
-
-module.exports = require("react-redux");
-
-/***/ }),
-
-/***/ "redux":
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
+      }
+    })(typeof __webpack_exports__ !== 'undefined' ? __webpack_exports__.default : (module.exports.default || module.exports), "/game")
+  
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ })
 
-/******/ });
-//# sourceMappingURL=game.js.map
+})
+//# sourceMappingURL=5.23399230e29909449e17.hot-update.js.map
