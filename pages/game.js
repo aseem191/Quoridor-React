@@ -78,6 +78,10 @@ class Game extends React.Component{
 	fetchGame(){
 		if(this.props.gameID){
 			fetch(urlname + "/game/" + this.props.gameID).then(response => response.json()).then(data => {
+				var x1 = this.props.game.Player1x;
+				var y1 = this.props.game.Player1y;
+				var x2 = this.props.game.Player2x;
+				var y2 = this.props.game.Player2y;
 				this.props.dispatch(updateGame(data));
 
 				for(var i = 0; i < data.Player1Bricks.length; i++){
@@ -113,10 +117,13 @@ class Game extends React.Component{
 						})
 					}
 				}
-
 				var temparr = this.state.playerArray.slice();
+				temparr[x1][y1] = this.state.squareColor;
+				temparr[x2][y2] = this.state.squareColor;
 				temparr[data.Player1x][data.Player1y] = this.state.player1Color;
 				temparr[data.Player2x][data.Player2y] = this.state.player2Color;
+
+
 
 				this.setState({
 					player1BricksLeft: 10 - data.Player1Bricks.length,
@@ -150,7 +157,7 @@ class Game extends React.Component{
 		if(this.props.game){
 			if(playing == this.props.name){
 				if(playing == this.props.game.Player1){
-					if(event.currentTarget.getAttribute('x') != this.props.game.Player2x && event.currentTarget.getAttribute('y') != this.props.game.Player2y){
+					if(!(event.currentTarget.getAttribute('x') == this.props.game.Player2x && event.currentTarget.getAttribute('y') == this.props.game.Player2y)){
 						if(Math.abs(this.props.game.Player1x - event.currentTarget.getAttribute('x')) == 1){
 							if(Math.abs(this.props.game.Player1y - event.currentTarget.getAttribute('y')) == 0){
 								var temparr = this.state.playerArray.slice();
@@ -162,6 +169,8 @@ class Game extends React.Component{
 							}
 						}
 						else if(Math.abs(this.props.game.Player1y - event.currentTarget.getAttribute('y')) == 1){
+							
+
 							if(Math.abs(this.props.game.Player1x - event.currentTarget.getAttribute('x')) == 0){
 								var temparr = this.state.playerArray.slice();
 								temparr[event.currentTarget.getAttribute('x')][event.currentTarget.getAttribute('y')] = this.state.squareHighlightedColor;
@@ -173,7 +182,7 @@ class Game extends React.Component{
 					}
 				}
 				else{
-					if(event.currentTarget.getAttribute('x') != this.props.game.Player1x && event.currentTarget.getAttribute('y') != this.props.game.Player1y){
+					if(!(event.currentTarget.getAttribute('x') == this.props.game.Player1x && event.currentTarget.getAttribute('y') == this.props.game.Player1y)){
 						if(Math.abs(this.props.game.Player2x - event.currentTarget.getAttribute('x')) == 1){
 							if(Math.abs(this.props.game.Player2y - event.currentTarget.getAttribute('y')) == 0){
 								var temparr = this.state.playerArray.slice();
@@ -210,7 +219,7 @@ class Game extends React.Component{
 		if(this.props.game){
 			if(playing == this.props.name){
 				if(playing == this.props.game.Player1){
-					if(event.currentTarget.getAttribute('x') != this.props.game.Player2x && event.currentTarget.getAttribute('y') != this.props.game.Player2y){
+					if(!(event.currentTarget.getAttribute('x') == this.props.game.Player2x && event.currentTarget.getAttribute('y') == this.props.game.Player2y)){
 						if(Math.abs(this.props.game.Player1x - event.currentTarget.getAttribute('x')) == 1){
 							if(Math.abs(this.props.game.Player1y - event.currentTarget.getAttribute('y')) == 0){
 								var temparr = this.state.playerArray.slice();
@@ -233,7 +242,7 @@ class Game extends React.Component{
 					}
 				}
 				else{
-					if(event.currentTarget.getAttribute('x') != this.props.game.Player1x && event.currentTarget.getAttribute('y') != this.props.game.Player1y){
+					if(!(event.currentTarget.getAttribute('x') == this.props.game.Player1x && event.currentTarget.getAttribute('y') == this.props.game.Player1y)){
 						if(Math.abs(this.props.game.Player2x - event.currentTarget.getAttribute('x')) == 1){
 							if(Math.abs(this.props.game.Player2y - event.currentTarget.getAttribute('y')) == 0){
 								var temparr = this.state.playerArray.slice();
@@ -271,7 +280,7 @@ class Game extends React.Component{
 			if(playing == this.props.name){
 				if(this.props.game.Player2){
 					if(playing == this.props.game.Player1){
-						if(event.currentTarget.getAttribute('x') != this.props.game.Player2x && event.currentTarget.getAttribute('y') != this.props.game.Player2y){
+						if(!(event.currentTarget.getAttribute('x') == this.props.game.Player2x && event.currentTarget.getAttribute('y') == this.props.game.Player2y)){
 							if(Math.abs(this.props.game.Player1x - event.currentTarget.getAttribute('x')) == 1){
 								if(Math.abs(this.props.game.Player1y - event.currentTarget.getAttribute('y')) == 0){
 									var params = {
@@ -325,7 +334,7 @@ class Game extends React.Component{
 						}
 					}
 					else{
-						if(event.currentTarget.getAttribute('x') != this.props.game.Player1x && event.currentTarget.getAttribute('y') != this.props.game.Player1y){
+						if(!(event.currentTarget.getAttribute('x') == this.props.game.Player1x && event.currentTarget.getAttribute('y') == this.props.game.Player1y)){
 							if(Math.abs(this.props.game.Player2x - event.currentTarget.getAttribute('x')) == 1){
 								if(Math.abs(this.props.game.Player2y - event.currentTarget.getAttribute('y')) == 0){
 									var params = {
@@ -445,8 +454,12 @@ class Game extends React.Component{
 			if(playing == this.props.name){
 				var x = event.currentTarget.getAttribute('x');
 				var y = event.currentTarget.getAttribute('y');
+
 				var orientation = event.currentTarget.getAttribute('orientation');
 				if(orientation == "vertical"){
+					if(this.state.verticalBricks[x][y] == this.state.brickExistsColor){
+						return;
+					}
 					var temparr = this.state.verticalBricks.slice();
 					temparr[x][y] = this.state.brickHighlightedColor;
 					this.setState({
@@ -454,6 +467,9 @@ class Game extends React.Component{
 					})
 				}
 				else if(orientation == "horizontal"){
+					if(this.state.horizontalBricks[x][y] == this.state.brickExistsColor){
+						return;
+					}
 					var temparr = this.state.horizontalBricks.slice();
 					temparr[x][y] = this.state.brickHighlightedColor;
 					this.setState({
@@ -461,6 +477,9 @@ class Game extends React.Component{
 					})
 				}
 				else if(orientation == "middle"){
+					if(this.state.verticalBricks[x][y] == this.state.brickExistsColor){
+						return;
+					}
 					var temparr = this.state.verticalBricks.slice();
 					temparr[x][y] = this.state.brickHighlightedColor;
 					this.setState({
@@ -487,8 +506,10 @@ class Game extends React.Component{
 				var x = event.currentTarget.getAttribute('x');
 				var y = event.currentTarget.getAttribute('y');
 				var orientation = event.currentTarget.getAttribute('orientation');
-				console.log("mouseover" + x + y + orientation)
 				if(orientation == "vertical"){
+					if(this.state.verticalBricks[x][y] == this.state.brickExistsColor){
+						return;
+					}
 					var temparr = this.state.verticalBricks.slice();
 					temparr[x][y] = this.state.brickDefaultColor;
 					this.setState({
@@ -496,6 +517,9 @@ class Game extends React.Component{
 					})
 				}
 				else if(orientation == "horizontal"){
+					if(this.state.horizontalBricks[x][y] == this.state.brickExistsColor){
+						return;
+					}
 					var temparr = this.state.horizontalBricks.slice();
 					temparr[x][y] = this.state.brickDefaultColor;
 					this.setState({
@@ -503,6 +527,9 @@ class Game extends React.Component{
 					})
 				}
 				else if(orientation == "middle"){
+					if(this.state.verticalBricks[x][y] == this.state.brickExistsColor){
+						return;
+					}
 					var temparr = this.state.verticalBricks.slice();
 					temparr[x][y] = this.state.brickDefaultColor;
 					this.setState({
@@ -897,21 +924,21 @@ class Game extends React.Component{
 
 					<div>
 						<div x={0} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[0][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
-						<div orientation="vertical" x={0} y={8} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
+						<div orientation="vertical" x={0} y={7} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[0][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={1} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[1][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
-						<div orientation="vertical" x={1} y={8} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[1][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
+						<div orientation="vertical" x={1} y={7} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[1][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={2} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[2][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
-						<div orientation="vertical" x={2} y={8} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[2][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
+						<div orientation="vertical" x={2} y={7} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[2][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={3} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[3][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
-						<div orientation="vertical" x={3} y={8} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[3][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
+						<div orientation="vertical" x={3} y={7} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[3][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={4} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[4][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
-						<div orientation="vertical" x={4} y={8} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[4][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
+						<div orientation="vertical" x={4} y={7} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[4][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={5} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[5][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
-						<div orientation="vertical" x={5} y={8} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[5][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
+						<div orientation="vertical" x={5} y={7} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[5][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={6} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[6][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
-						<div orientation="vertical" x={6} y={8} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[6][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
+						<div orientation="vertical" x={6} y={7} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[6][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={7} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[7][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
-						<div orientation="vertical" x={7} y={8} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[7][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
+						<div orientation="vertical" x={7} y={7} style={{float: "left", display: "inline", height: "50px", width: "25px", backgroundColor: this.state.verticalBricks[7][7]}} onClick={this.clickBrick} onMouseOver={this.brickMouseOver} onMouseLeave={this.brickMouseLeave}></div>
 						<div x={8} y={8} style={{float: "left", display: "inline", height: "50px", width: "50px", backgroundColor: this.state.playerArray[8][8]}} onClick={this.clickSquare} onMouseOver={this.squareMouseOver} onMouseLeave={this.squareMouseLeave}></div>
 					</div>
 					<div style={{lineHeight: "50px"}}>
