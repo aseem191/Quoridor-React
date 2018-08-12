@@ -529,10 +529,10 @@ function (_React$Component) {
       if (this.props.game) {
         if (playing == this.props.name) {
           if (this.props.game.Player2) {
-            var Vertical = true;
+            var Vertical = false;
 
-            if (event.currentTarget.getAttribute('orientation') == "vertical") {} else {
-              Vertical = false;
+            if (event.currentTarget.getAttribute('orientation') == "horizontal") {} else {
+              Vertical = true;
             }
 
             var params = {
@@ -6214,4 +6214,4 @@ function (_React$Component) {
 /***/ })
 
 })
-//# sourceMappingURL=5.080fb7d26d4a896a0f9e.hot-update.js.map
+//# sourceMappingURL=5.334a7b2466e466d1a123.hot-update.js.map

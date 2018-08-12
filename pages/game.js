@@ -422,11 +422,11 @@ class Game extends React.Component{
 		if(this.props.game){
 			if(playing == this.props.name){
 				if(this.props.game.Player2){
-					var Vertical = true;
-					if(event.currentTarget.getAttribute('orientation') == "vertical"){
+					var Vertical = false;
+					if(event.currentTarget.getAttribute('orientation') == "horizontal"){
 					}
 					else{
-						Vertical = false;
+						Vertical = true;
 					}
 
 					var params = {
@@ -581,6 +581,8 @@ class Game extends React.Component{
 						: <div><h2>It's {this.props.game.Player2}'s turn! </h2> <br/> <br/></div>)
 						: <h4> Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like 😉 </h4>
 					}
+
+					<h3>{this.props.game.Player1} has {this.state.player1BricksLeft} bricks left.</h3>
 					
 					<div style={{backgroundColor: this.state.brickDefaultColor, width: "650px"}}>
 					<div>
