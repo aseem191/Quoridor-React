@@ -85,6 +85,34 @@ class Game extends React.Component{
 				var y2 = this.props.game.Player2y;
 				this.props.dispatch(updateGame(data));
 
+				if(data.Player1y == 8 || data.Player2y == 0){
+					var tempID = this.props.gameID;
+					this.props.dispatch(updateGameID(null));
+					this.props.dispatch(updateGame(null));
+					console.log("ending game" + this.props.gameID)
+					var winner = "";
+					if(data.Player1y == 8){
+						winner = data.Player1;
+					}
+					else{
+						winner = data.Player2;
+					}
+
+					if(this.props.name == winner){
+						var params = {
+							winner: winner
+						}
+
+						fetch(urlname + "/game/" + tempID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+							console.log("ended game")
+							this.setState({
+								errorMsg: "Game has ended."
+							})
+						})
+					}
+					
+				}
+
 				for(var i = 0; i < data.Player1Bricks.length; i++){
 					if(data.Player1Bricks[i].vertical){
 						var temparr = this.state.verticalBricks.slice();
@@ -138,7 +166,7 @@ class Game extends React.Component{
 	}
 
 	componentDidMount() {
-		this.interval = setInterval(() => this.fetchGame(), 2000);
+		this.interval = setInterval(this.fetchGame, 2000);
 	}
 	componentWillUnmount() {
 		clearInterval(this.interval);
@@ -572,13 +600,13 @@ class Game extends React.Component{
 
 					{this.state.errorMsg == "" ?
 						null
-						: <h4>this.state.errorMsg</h4>
+						: <h4>Error: {this.state.errorMsg}</h4>
 					}
 
 					{this.props.game.Player2 ?
 						(this.props.game.PlayerTurn == 1 ?
-						<div><h2>It's {this.props.game.Player1}'s turn! </h2> <br/> <br/></div>
-						: <div><h2>It's {this.props.game.Player2}'s turn! </h2> <br/> <br/></div>)
+						<div><h2>It's {this.props.game.Player1}'s turn! </h2> </div>
+						: <div><h2>It's {this.props.game.Player2}'s turn! </h2> </div>)
 						: <h4> Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like 😉 </h4>
 					}
 
@@ -970,6 +998,11 @@ class Game extends React.Component{
 
 
 					</div>
+					{this.props.game.Player2 ? 
+						<h3>{this.props.game.Player2} has {this.state.player2BricksLeft} bricks left.</h3>
+						: null
+					}
+					
 
 					</div>
 				)
