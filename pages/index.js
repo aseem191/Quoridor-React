@@ -58,6 +58,22 @@ class LoginPage extends React.Component{
 				<Link  href={{ pathname: '/game' }}>
 					<button onClick={this.startGame}>Start game!</button>
 				</Link>
+				<style jsx global>{`
+					body { 
+						background: #ccebff;
+					}
+					@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic');
+
+          @fontface {
+            font-family: 'Gentium Book Basic', cursive;
+            src: url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic')
+          }
+
+          h3 {
+	          font-family: "Gentium Book Basic", Times, serif;
+	        }
+				`}
+				</style>
 			</div>
 		)
 	}

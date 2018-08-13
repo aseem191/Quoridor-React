@@ -122,24 +122,18 @@ class Game extends React.Component{
 						winner = data.Player2;
 					}
 
-					if(this.props.name == winner){
-						this.setState({
-							errorMsg: "Game has ended.",
-							gameExists: false
-						})
+					this.setState({
+						errorMsg: "Game has ended. Winner: " + winner,
+						gameExists: false
+					})
 
+					if(this.props.name == winner){
 						var params = {
 							winner: winner
 						}
 
 						fetch(urlname + "/game/" + tempID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 							console.log("ended game")
-						})
-					}
-					else{
-						this.setState({
-							errorMsg: "Game has ended.",
-							gameExists: false
 						})
 					}
 					
@@ -1090,11 +1084,29 @@ class Game extends React.Component{
 				)
 				: <h3>Loading game...</h3>
 				)
-			: <h3>Game has ended.</h3>
+			: <h3>{this.state.errorMsg}</h3>
 			}
 
-				
+			<style jsx global>{`
+				body { 
+					background: #ccebff;
+				}
+
+				@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic');
+
+          @fontface {
+            font-family: 'Gentium Book Basic', cursive;
+            src: url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic')
+          }
+
+				h3 {
+	          font-family: "Gentium Book Basic", Times, serif;
+	        }
+			`}
+			</style>
 			</div>
+			
+      
 		)
 	}
 }
