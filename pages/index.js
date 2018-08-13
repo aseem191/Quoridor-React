@@ -24,8 +24,28 @@ class LoginPage extends React.Component{
 	}
 
 	startGame(event){
-		this.props.dispatch(updateName(this.state.name));
-		console.log("done")
+		if(this.state.name == ""){
+
+		}
+		else{
+			if(this.props.gameID){
+				var params = {
+					id: this.props.gameID
+				}
+				fetch(urlname + "/destroy", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+					
+				})
+			}
+			
+
+			this.props.dispatch(updateName(this.state.name));
+			this.props.dispatch(updateGameID(null));
+			this.props.dispatch(updateGame(null));
+
+
+			console.log("done")
+		}
+		
 	}
 
 	render(){

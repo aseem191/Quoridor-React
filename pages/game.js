@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Page from "./page.js"
 import { updateGame, updateName, updateGameID } from "../redux/actions.js";
 
+
 class Game extends React.Component{
 	constructor(props){
 		super(props);
@@ -17,7 +18,6 @@ class Game extends React.Component{
 		this.clickSquare = this.clickSquare.bind(this);
 
 
-		this.props.dispatch(updateGame(null));
 		var arr = [];
 		for(var x = 0; x < 8; x++){
 			arr[x] = [];
@@ -53,7 +53,8 @@ class Game extends React.Component{
 			horizontalBricks: arr2.slice(),
 			player1BricksLeft: 10,
 			player2BricksLeft: 10,
-			errorMsg: ""
+			errorMsg: "",
+			gameExists: true
 		}
 
 		var params = {uname: this.props.name}
@@ -75,6 +76,9 @@ class Game extends React.Component{
 	}
 
 
+
+
+
 	fetchGame(){
 		if(this.props.gameID){
 			fetch(urlname + "/game/" + this.props.gameID).then(response => response.json()).then(data => {
@@ -83,7 +87,27 @@ class Game extends React.Component{
 				var y1 = this.props.game.Player1y;
 				var x2 = this.props.game.Player2x;
 				var y2 = this.props.game.Player2y;
+
 				this.props.dispatch(updateGame(data));
+				if(data.ToDestroy){
+					var tempID = this.props.gameID;
+					this.props.dispatch(updateGameID(null));
+					this.props.dispatch(updateGame(null));
+					console.log("ending game" + this.props.gameID)
+
+					this.setState({
+						errorMsg: "Game has ended.",
+						gameExists: false
+					})
+
+					var params = {
+						winner: this.props.name
+					}
+
+					fetch(urlname + "/game/" + tempID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+						console.log("ended game")
+					})
+				}
 
 				if(data.Player1y == 8 || data.Player2y == 0){
 					var tempID = this.props.gameID;
@@ -99,15 +123,23 @@ class Game extends React.Component{
 					}
 
 					if(this.props.name == winner){
+						this.setState({
+							errorMsg: "Game has ended.",
+							gameExists: false
+						})
+
 						var params = {
 							winner: winner
 						}
 
 						fetch(urlname + "/game/" + tempID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 							console.log("ended game")
-							this.setState({
-								errorMsg: "Game has ended."
-							})
+						})
+					}
+					else{
+						this.setState({
+							errorMsg: "Game has ended.",
+							gameExists: false
 						})
 					}
 					
@@ -167,6 +199,50 @@ class Game extends React.Component{
 
 	componentDidMount() {
 		this.interval = setInterval(this.fetchGame, 2000);
+
+		window.addEventListener("beforeunload", (ev) => 
+		{
+			//ev.preventDefault();
+			ev.returnValue = "Game has ended."
+
+			if(this.props.game){
+				
+				this.setState({
+					errorMsg: "Game has ended.",
+					gameExists: false
+				})
+				if(this.props.game.Player2){
+					var params = {
+						id: this.props.gameID
+					}
+
+					this.props.dispatch(updateGameID(null));
+					this.props.dispatch(updateGame(null));
+					fetch(urlname + "/destroy", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+						
+						return "Game has ended."
+					})
+				}
+				else{
+					var gameID = this.props.gameID;
+					
+					var params = {
+						winner: this.props.name
+					}
+
+					this.props.dispatch(updateGameID(null));
+					this.props.dispatch(updateGame(null));
+					fetch(urlname + "/game/" + gameID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+						console.log("ended game")
+
+						return "Game has ended."
+					})
+				}
+				
+			}
+			
+			
+		});
 	}
 	componentWillUnmount() {
 		clearInterval(this.interval);
@@ -594,7 +670,8 @@ class Game extends React.Component{
 	render(){
 		return(
 			<div>
-				{this.props.game ?
+			{ this.state.gameExists ?
+				(this.props.game ?
 				(
 					<div>
 
@@ -605,8 +682,13 @@ class Game extends React.Component{
 
 					{this.props.game.Player2 ?
 						(this.props.game.PlayerTurn == 1 ?
-						<div><h2>It's {this.props.game.Player1}'s turn! </h2> </div>
-						: <div><h2>It's {this.props.game.Player2}'s turn! </h2> </div>)
+						(this.props.game.Player1 == this.props.name ? <div><h2>It's your turn! </h2> </div>
+						: <div><h2>It's {this.props.game.Player1}'s turn! </h2> </div>
+						)
+						: (this.props.game.Player2 == this.props.name ? <div><h2>It's your turn! </h2> </div>
+						: <div><h2>It's {this.props.game.Player2}'s turn! </h2> </div>
+						)
+						)
 						: <h4> Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like 😉 </h4>
 					}
 
@@ -1007,7 +1089,9 @@ class Game extends React.Component{
 					</div>
 				)
 				: <h3>Loading game...</h3>
-				}
+				)
+			: <h3>Game has ended.</h3>
+			}
 
 				
 			</div>

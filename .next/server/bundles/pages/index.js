@@ -149,8 +149,27 @@ function (_React$Component) {
   }, {
     key: "startGame",
     value: function startGame(event) {
-      this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["c" /* updateName */])(this.state.name));
-      console.log("done");
+      if (this.state.name == "") {} else {
+        if (this.props.gameID) {
+          var params = {
+            id: this.props.gameID
+          };
+          __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/destroy", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+          }).then(function (response) {
+            return response.json();
+          }).then(function (data) {});
+        }
+
+        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["c" /* updateName */])(this.state.name));
+        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["b" /* updateGameID */])(null));
+        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["a" /* updateGame */])(null));
+        console.log("done");
+      }
     }
   }, {
     key: "render",
@@ -158,12 +177,12 @@ function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 53
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 54
         }
       }, "Enter your name:"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
         onSubmit: function onSubmit(e) {
@@ -171,14 +190,14 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 55
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
         type: "text",
         onChange: this.changeName,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 56
         }
       })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
         href: {
@@ -186,13 +205,13 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 58
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
         onClick: this.startGame,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 59
         }
       }, "Start game!")));
     }
