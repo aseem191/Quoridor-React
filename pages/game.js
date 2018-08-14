@@ -683,7 +683,7 @@ class Game extends React.Component{
 						: <div><h2>It's {this.props.game.Player2}'s turn! </h2> </div>
 						)
 						)
-						: <h3> Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like 😉 </h3>
+						: <h4> Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like 😉 </h4>
 					}
 
 					<h3>{this.props.game.Player1} has {this.state.player1BricksLeft} bricks left.</h3>
@@ -1092,11 +1092,11 @@ class Game extends React.Component{
 					background: #c9f5ff;
 				}
 
-				@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
+				@import url('https://fonts.googleapis.com/css?family=Rubik');
 
 				@fontface {
-					font-family: 'Do Hyeon', cursive;
-					src: url('https://fonts.googleapis.com/css?family=Do+Hyeon')
+					font-family: 'Rubik', cursive;
+					src: url('https://fonts.googleapis.com/css?family=Rubik')
 				}
 
 				@import url('https://fonts.googleapis.com/css?family=Graduate');
@@ -1107,7 +1107,11 @@ class Game extends React.Component{
 				}
 
 				h3 {
-					font-family: "Do Hyeon", Times, serif;
+					font-family: "Rubik", Times, serif;
+				}
+
+				h4 {
+					font-family: "Rubik", Times, serif;
 				}
 
 				h2 {

@@ -17,7 +17,7 @@ const theme = createMuiTheme({
 		// contrastText: will be calculated to contast with palette.primary.main
 		},
 		secondary: {
-			main: '#ffffff',
+			main: '#80a2ff',
 		// dark: will be calculated from palette.secondary.main,
 		},
 		tertiary: {
@@ -90,18 +90,29 @@ class LoginPage extends React.Component{
 			<MuiThemeProvider theme={theme}>
 			<div align="center">
 				<br/><br/>
-				<h1 style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '40px' }}>Quoridor React</h1><br/><br/><br/>
-				<h3 style={{fontFamily: "Rubik", fontWeight: "bold", fontSize: '20px' }}>Enter your name</h3>
-				<form onSubmit={e => {e.preventDefault();}}>
-					<TextField style={{fontFamily: "Rubik", fontWeight: "bold", fontSize: '20px' }} onKeyPress={e => {if (e.key === 'Enter') e.preventDefault();}} onChange={this.changeName} margin="normal" />
-				</form>
+				<h1 style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '40px' }}>How to Play</h1><br/><br/>
+
+				<h3>The game is played by 2 players, with the first player on the top and second player on the bottom, and involves tiles and bricks. The game board looks like this: </h3>
+
+				<img style={{height: "600px", width: "500px"}} src="/static/maingame.PNG" /> 
+
+				<h3>During their turn, a player can either move one spot up/down/left/right, or can place down up to 10 bricks, like so:</h3>
+
+				<img style={{height: "600px", width: "500px"}} src="/static/placingbricks.PNG" />
+
+				<h3>The aim of the game is to get to the other side of the board. Player 1 has to reach the bottom most row, while player 2 has to reach the topmost row.</h3>
+
+				<img style={{height: "600px", width: "500px"}} src="/static/winning.PNG" />
+
+				<h3>Also, try not to box the other player in, as that would be unfair.</h3>
+
+				<img style={{height: "300px", width: "400px"}} src="/static/blocked.PNG" />
+
+				<h2>Have fun building quoridors!</h2>
+				
 				<br/>
-				<Link  href={{ pathname: '/game' }}>
-					<Button variant="contained" style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '16px' }} onClick={this.startGame} color="secondary">Start game!</Button>
-				</Link>
-				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-				<Link  href={{ pathname: '/learn' }}>
-					<Button variant="contained" style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '14px' }} color="primary">How to play</Button>
+				<Link  href={{ pathname: '/' }}>
+					<Button variant="contained" style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '16px' }} color="primary">Go back</Button>
 				</Link>
 				<style jsx global>{`
 					body { 
@@ -120,6 +131,14 @@ class LoginPage extends React.Component{
 					@fontface {
 						font-family: 'Graduate', cursive;
 						src: url('https://fonts.googleapis.com/css?family=Graduate')
+					}
+
+					h3 {
+						font-family: "Rubik", Times, serif;
+					}
+
+					h2 {
+						font-family: "Rubik", Times, serif;
 					}
 				`}
 				</style>
