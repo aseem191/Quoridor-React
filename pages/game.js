@@ -671,7 +671,7 @@ class Game extends React.Component{
 
 					{this.state.errorMsg == "" ?
 						null
-						: <h4>Error: {this.state.errorMsg}</h4>
+						: <h3>Error: {this.state.errorMsg}</h3>
 					}
 
 					{this.props.game.Player2 ?
@@ -683,7 +683,7 @@ class Game extends React.Component{
 						: <div><h2>It's {this.props.game.Player2}'s turn! </h2> </div>
 						)
 						)
-						: <h4> Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like 😉 </h4>
+						: <h3> Waiting for player to play against... you could also open another tab, create another player, and play against yourself if you'd like 😉 </h3>
 					}
 
 					<h3>{this.props.game.Player1} has {this.state.player1BricksLeft} bricks left.</h3>
@@ -1089,19 +1089,30 @@ class Game extends React.Component{
 
 			<style jsx global>{`
 				body { 
-					background: #ccebff;
+					background: #c9f5ff;
 				}
 
-				@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic');
+				@import url('https://fonts.googleapis.com/css?family=Do+Hyeon');
 
-          @fontface {
-            font-family: 'Gentium Book Basic', cursive;
-            src: url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic')
-          }
+				@fontface {
+					font-family: 'Do Hyeon', cursive;
+					src: url('https://fonts.googleapis.com/css?family=Do+Hyeon')
+				}
+
+				@import url('https://fonts.googleapis.com/css?family=Graduate');
+
+				@fontface {
+					font-family: 'Graduate', cursive;
+					src: url('https://fonts.googleapis.com/css?family=Graduate')
+				}
 
 				h3 {
-	          font-family: "Gentium Book Basic", Times, serif;
-	        }
+					font-family: "Do Hyeon", Times, serif;
+				}
+
+				h2 {
+					font-family: "Graduate", Times, serif;
+				}
 			`}
 			</style>
 			</div>
