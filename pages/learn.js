@@ -96,7 +96,7 @@ class LoginPage extends React.Component{
 
 				<img style={{height: "600px", width: "500px"}} src="/static/maingame.PNG" /> 
 
-				<h3>During their turn, a player can either move one spot up/down/left/right, or can place down up to 10 bricks, like so:</h3>
+				<h3>During their turn, a player can either move one spot up/down/left/right, or can place down up to 10 bricks to restrict the other player's movement, like so:</h3>
 
 				<img style={{height: "600px", width: "500px"}} src="/static/placingbricks.PNG" />
 

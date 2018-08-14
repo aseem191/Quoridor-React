@@ -68,6 +68,12 @@ class Game extends React.Component{
 						console.log("game is " + JSON.stringify(data))
 					})
 				}
+				else{
+					this.setState({
+						gameExists: false,
+						errorMsg: "Player already exists. Try again."
+					})
+				}
 				
 			})
 			
