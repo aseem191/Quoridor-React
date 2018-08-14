@@ -7,6 +7,7 @@ import { updateGame, updateName, updateGameID } from "../redux/actions.js";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Layout from '../components/layout.js'
 
 const theme = createMuiTheme({
 	palette: {
@@ -87,6 +88,7 @@ class LoginPage extends React.Component{
 
 	render(){
 		return(
+			<Layout>
 			<MuiThemeProvider theme={theme}>
 			<div align="center">
 				<br/><br/>
@@ -114,25 +116,8 @@ class LoginPage extends React.Component{
 				<Link  href={{ pathname: '/' }}>
 					<Button variant="contained" style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '16px' }} color="primary">Go back</Button>
 				</Link>
-				<style jsx global>{`
-					body { 
-						background: #c9f5ff;
-					}
-
-					@import url('https://fonts.googleapis.com/css?family=Rubik');
-
-					@fontface {
-						font-family: 'Rubik', cursive;
-						src: url('https://fonts.googleapis.com/css?family=Rubik')
-					}
-
-					@import url('https://fonts.googleapis.com/css?family=Graduate');
-
-					@fontface {
-						font-family: 'Graduate', cursive;
-						src: url('https://fonts.googleapis.com/css?family=Graduate')
-					}
-
+				<style jsx>{`
+					
 					h3 {
 						font-family: "Rubik", Times, serif;
 					}
@@ -144,6 +129,7 @@ class LoginPage extends React.Component{
 				</style>
 			</div>
 			</MuiThemeProvider>
+			</Layout>
 		)
 	}
 }

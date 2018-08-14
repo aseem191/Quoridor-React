@@ -1,7 +1,36 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/', function() {
           var comp =
-      webpackJsonp([5],{
+      webpackJsonp([4],{
+
+/***/ "./components/layout.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_jsx_style__ = __webpack_require__("./node_modules/styled-jsx/style.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_jsx_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_styled_jsx_style__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+var _jsxFileName = "C:\\Users\\Aseem\\React Projects\\ReactQuoridor\\components\\layout.js";
+
+
+
+var Layout = function Layout(props) {
+  return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4
+    },
+    className: "jsx-1755214282"
+  }, props.children, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_styled_jsx_style___default.a, {
+    styleId: "1755214282",
+    css: "@import url('https://fonts.googleapis.com/css?family=Rubik');@fontface{font-family:'Rubik',cursive;src:url('https://fonts.googleapis.com/css?family=Rubik');}@import url('https://fonts.googleapis.com/css?family=Graduate');@fontface{font-family:'Graduate',cursive;src:url('https://fonts.googleapis.com/css?family=Graduate');}body{background:#c9f5ff;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHNcXGxheW91dC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLcUIsQUFHMEIsQUFHdUMsQUFHN0IsQUFJZ0MsQUFHN0IsbUJBWmxDLFNBT0QsR0FPQSxzREFQQyxNQU9BIiwiZmlsZSI6ImNvbXBvbmVudHNcXGxheW91dC5qcyIsInNvdXJjZVJvb3QiOiJDOlxcVXNlcnNcXEFzZWVtXFxSZWFjdCBQcm9qZWN0c1xcUmVhY3RRdW9yaWRvciIsInNvdXJjZXNDb250ZW50IjpbIlxyXG5cclxuY29uc3QgTGF5b3V0ID0gKHByb3BzKSA9PiAoXHJcbiAgPGRpdj5cclxuICB7cHJvcHMuY2hpbGRyZW59XHJcbiAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcclxuICAgIGJvZHkgeyBcclxuICAgICAgYmFja2dyb3VuZDogI2M5ZjVmZjtcclxuICAgIH1cclxuXHJcbiAgICBAaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJ1YmlrJyk7XHJcblxyXG4gICAgQGZvbnRmYWNlIHtcclxuICAgICAgZm9udC1mYW1pbHk6ICdSdWJpaycsIGN1cnNpdmU7XHJcbiAgICAgIHNyYzogdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9UnViaWsnKVxyXG4gICAgfVxyXG5cclxuICAgIEBpbXBvcnQgdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9R3JhZHVhdGUnKTtcclxuXHJcbiAgICBAZm9udGZhY2Uge1xyXG4gICAgICBmb250LWZhbWlseTogJ0dyYWR1YXRlJywgY3Vyc2l2ZTtcclxuICAgICAgc3JjOiB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1HcmFkdWF0ZScpXHJcbiAgICB9XHJcbiAgYH1cclxuICA8L3N0eWxlPlxyXG4gIDwvZGl2PlxyXG4pXHJcblxyXG5leHBvcnQgZGVmYXVsdCBMYXlvdXQiXX0= */\n/*@ sourceURL=components\\layout.js */"
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Layout);
+
+/***/ }),
 
 /***/ "./components/urlname.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -22764,26 +22793,24 @@ module.exports = function(originalModule) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_jsx_style__ = __webpack_require__("./node_modules/styled-jsx/style.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_styled_jsx_style___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_styled_jsx_style__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link__ = __webpack_require__("./node_modules/next/link.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_next_link__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_urlname_js__ = __webpack_require__("./components/urlname.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_redux__ = __webpack_require__("./node_modules/react-redux/es/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__page_js__ = __webpack_require__("./pages/page.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__redux_actions_js__ = __webpack_require__("./redux/actions.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_styles__ = __webpack_require__("./node_modules/@material-ui/core/styles/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_styles__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_Button__ = __webpack_require__("./node_modules/@material-ui/core/Button/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_Button__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_TextField__ = __webpack_require__("./node_modules/@material-ui/core/TextField/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__material_ui_core_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_TextField__);
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link__ = __webpack_require__("./node_modules/next/link.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_link___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_link__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__ = __webpack_require__("./node_modules/isomorphic-unfetch/browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_urlname_js__ = __webpack_require__("./components/urlname.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_redux__ = __webpack_require__("./node_modules/react-redux/es/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__page_js__ = __webpack_require__("./pages/page.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__redux_actions_js__ = __webpack_require__("./redux/actions.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_styles__ = __webpack_require__("./node_modules/@material-ui/core/styles/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_styles__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Button__ = __webpack_require__("./node_modules/@material-ui/core/Button/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_Button___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_Button__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_TextField__ = __webpack_require__("./node_modules/@material-ui/core/TextField/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_core_TextField___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_TextField__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_layout_js__ = __webpack_require__("./components/layout.js");
 var _jsxFileName = "C:\\Users\\Aseem\\React Projects\\ReactQuoridor\\pages\\index.js";
-
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -22809,7 +22836,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var theme = Object(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_styles__["createMuiTheme"])({
+
+var theme = Object(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_styles__["createMuiTheme"])({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
@@ -22877,7 +22905,7 @@ function (_React$Component) {
           var params = {
             id: this.props.gameID
           };
-          __WEBPACK_IMPORTED_MODULE_3_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_4__components_urlname_js__["a" /* default */] + "/destroy", {
+          __WEBPACK_IMPORTED_MODULE_2_isomorphic_unfetch___default()(__WEBPACK_IMPORTED_MODULE_3__components_urlname_js__["a" /* default */] + "/destroy", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -22888,41 +22916,43 @@ function (_React$Component) {
           }).then(function (data) {});
         }
 
-        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__redux_actions_js__["c" /* updateName */])(this.state.name));
-        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__redux_actions_js__["b" /* updateGameID */])(null));
-        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_7__redux_actions_js__["a" /* updateGame */])(null));
+        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["c" /* updateName */])(this.state.name));
+        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["b" /* updateGameID */])(null));
+        this.props.dispatch(Object(__WEBPACK_IMPORTED_MODULE_6__redux_actions_js__["a" /* updateGame */])(null));
         console.log("done");
       }
     }
   }, {
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_styles__["MuiThemeProvider"], {
-        theme: theme,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 90
-        }
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("div", {
-        align: "center",
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__components_layout_js__["a" /* default */], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 91
-        },
-        className: "jsx-3653501900"
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_styles__["MuiThemeProvider"], {
+        theme: theme,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 92
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        align: "center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h1", {
+          lineNumber: 93
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 94
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 94
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h1", {
         style: {
           fontFamily: "Graduate",
           fontWeight: "bold",
@@ -22930,28 +22960,24 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
-        },
-        className: "jsx-3653501900"
-      }, "Quoridor React"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 95
+        }
+      }, "Quoridor React"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 95
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 95
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("h3", {
+          lineNumber: 95
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("h3", {
         style: {
           fontFamily: "Rubik",
           fontWeight: "bold",
@@ -22959,19 +22985,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
-        },
-        className: "jsx-3653501900"
-      }, "Enter your name"), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("form", {
+          lineNumber: 96
+        }
+      }, "Enter your name"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("form", {
         onSubmit: function onSubmit(e) {
           e.preventDefault();
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
-        },
-        className: "jsx-3653501900"
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_10__material_ui_core_TextField___default.a, {
+          lineNumber: 97
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_TextField___default.a, {
         style: {
           fontFamily: "Rubik",
           fontWeight: "bold",
@@ -22984,23 +23008,22 @@ function (_React$Component) {
         margin: "normal",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 98
         }
-      })), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+      })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_link___default.a, {
+          lineNumber: 100
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
         href: {
           pathname: '/game'
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 101
         }
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_Button___default.a, {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_Button___default.a, {
         variant: "contained",
         style: {
           fontFamily: "Graduate",
@@ -23011,77 +23034,67 @@ function (_React$Component) {
         color: "secondary",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 102
         }
-      }, "Start game!")), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+      }, "Start game!")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement("br", {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
-        },
-        className: "jsx-3653501900"
-      }), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_next_link___default.a, {
+          lineNumber: 104
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_link___default.a, {
         href: {
           pathname: '/learn'
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 105
         }
-      }, __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__material_ui_core_Button___default.a, {
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_Button___default.a, {
         variant: "contained",
         style: {
           fontFamily: "Graduate",
@@ -23091,19 +23104,16 @@ function (_React$Component) {
         color: "primary",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 106
         }
-      }, "How to play")), __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_0_styled_jsx_style___default.a, {
-        styleId: "3653501900",
-        css: "@import url('https://fonts.googleapis.com/css?family=Rubik');@fontface{font-family:'Rubik',cursive;src:url('https://fonts.googleapis.com/css?family=Rubik');}@import url('https://fonts.googleapis.com/css?family=Graduate');@fontface{font-family:'Graduate',cursive;src:url('https://fonts.googleapis.com/css?family=Graduate');}body{background:#c9f5ff;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzXFxpbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUF5R3VCLEFBRzBCLEFBR3dDLEFBRzlCLEFBSWlDLEFBRzlCLG1CQVpqQyxTQU9ELEdBT0Esc0RBUEMsTUFPQSIsImZpbGUiOiJwYWdlc1xcaW5kZXguanMiLCJzb3VyY2VSb290IjoiQzpcXFVzZXJzXFxBc2VlbVxcUmVhY3QgUHJvamVjdHNcXFJlYWN0UXVvcmlkb3IiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTGluayBmcm9tICduZXh0L2xpbmsnXHJcbmltcG9ydCBmZXRjaCBmcm9tICdpc29tb3JwaGljLXVuZmV0Y2gnXHJcbmltcG9ydCB1cmxuYW1lIGZyb20gJy4uL2NvbXBvbmVudHMvdXJsbmFtZS5qcydcclxuaW1wb3J0IHsgY29ubmVjdCB9IGZyb20gXCJyZWFjdC1yZWR1eFwiO1xyXG5pbXBvcnQgUGFnZSBmcm9tIFwiLi9wYWdlLmpzXCJcclxuaW1wb3J0IHsgdXBkYXRlR2FtZSwgdXBkYXRlTmFtZSwgdXBkYXRlR2FtZUlEIH0gZnJvbSBcIi4uL3JlZHV4L2FjdGlvbnMuanNcIjtcclxuaW1wb3J0IHsgTXVpVGhlbWVQcm92aWRlciwgY3JlYXRlTXVpVGhlbWUgfSBmcm9tICdAbWF0ZXJpYWwtdWkvY29yZS9zdHlsZXMnO1xyXG5pbXBvcnQgQnV0dG9uIGZyb20gJ0BtYXRlcmlhbC11aS9jb3JlL0J1dHRvbic7XHJcbmltcG9ydCBUZXh0RmllbGQgZnJvbSAnQG1hdGVyaWFsLXVpL2NvcmUvVGV4dEZpZWxkJztcclxuXHJcbmNvbnN0IHRoZW1lID0gY3JlYXRlTXVpVGhlbWUoe1xyXG5cdHBhbGV0dGU6IHtcclxuXHRcdHByaW1hcnk6IHtcclxuXHRcdC8vIGxpZ2h0OiB3aWxsIGJlIGNhbGN1bGF0ZWQgZnJvbSBwYWxldHRlLnByaW1hcnkubWFpbixcclxuXHRcdFx0bWFpbjogJyM3Y2U3ZmYnLFxyXG5cdFx0Ly8gZGFyazogd2lsbCBiZSBjYWxjdWxhdGVkIGZyb20gcGFsZXR0ZS5wcmltYXJ5Lm1haW4sXHJcblx0XHQvLyBjb250cmFzdFRleHQ6IHdpbGwgYmUgY2FsY3VsYXRlZCB0byBjb250YXN0IHdpdGggcGFsZXR0ZS5wcmltYXJ5Lm1haW5cclxuXHRcdH0sXHJcblx0XHRzZWNvbmRhcnk6IHtcclxuXHRcdFx0bWFpbjogJyNmZmZmZmYnLFxyXG5cdFx0Ly8gZGFyazogd2lsbCBiZSBjYWxjdWxhdGVkIGZyb20gcGFsZXR0ZS5zZWNvbmRhcnkubWFpbixcclxuXHRcdH0sXHJcblx0XHR0ZXJ0aWFyeToge1xyXG5cdFx0XHRtYWluOiAnIzMzZmZjYycsXHJcblx0XHQvLyBkYXJrOiB3aWxsIGJlIGNhbGN1bGF0ZWQgZnJvbSBwYWxldHRlLnNlY29uZGFyeS5tYWluLFxyXG5cdFx0fSxcclxuXHRcdC8vIFVzZWQgYnkgYGdldENvbnRyYXN0VGV4dCgpYCB0byBtYXhpbWl6ZSB0aGUgY29udHJhc3QgYmV0d2VlbiB0aGUgYmFja2dyb3VuZCBhbmRcclxuXHRcdC8vIHRoZSB0ZXh0LlxyXG5cdFx0Y29udHJhc3RUaHJlc2hvbGQ6IDMsXHJcblx0XHQvLyBVc2VkIHRvIHNoaWZ0IGEgY29sb3IncyBsdW1pbmFuY2UgYnkgYXBwcm94aW1hdGVseVxyXG5cdFx0Ly8gdHdvIGluZGV4ZXMgd2l0aGluIGl0cyB0b25hbCBwYWxldHRlLlxyXG5cdFx0Ly8gRS5nLiwgc2hpZnQgZnJvbSBSZWQgNTAwIHRvIFJlZCAzMDAgb3IgUmVkIDcwMC5cclxuXHRcdHRvbmFsT2Zmc2V0OiAwLjIsXHJcblx0fSxcclxuXHJcblx0cHJvcHM6IHtcclxuXHRcdC8vIE5hbWUgb2YgdGhlIGNvbXBvbmVudCDimpvvuI9cclxuXHRcdE11aUJ1dHRvbkJhc2U6IHtcclxuXHRcdC8vIFRoZSBwcm9wZXJ0aWVzIHRvIGFwcGx5XHJcblx0XHRcdGRpc2FibGVSaXBwbGU6IHRydWUsIC8vIE5vIG1vcmUgcmlwcGxlLCBvbiB0aGUgd2hvbGUgYXBwbGljYXRpb24g8J+SoyFcclxuXHRcdH0sXHJcblx0fSxcclxufSk7XHJcblxyXG5jbGFzcyBMb2dpblBhZ2UgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnR7XHJcblx0Y29uc3RydWN0b3IocHJvcHMpe1xyXG5cdFx0c3VwZXIocHJvcHMpO1xyXG5cclxuXHRcdHRoaXMuc3RhdGUgPSB7XHJcblx0XHRcdG5hbWU6IFwiXCJcclxuXHRcdH1cclxuXHJcblx0XHR0aGlzLmNoYW5nZU5hbWUgPSB0aGlzLmNoYW5nZU5hbWUuYmluZCh0aGlzKTtcclxuXHRcdHRoaXMuc3RhcnRHYW1lID0gdGhpcy5zdGFydEdhbWUuYmluZCh0aGlzKTtcclxuXHR9XHJcblxyXG5cdGNoYW5nZU5hbWUoZXZlbnQpe1xyXG5cdFx0dGhpcy5zZXRTdGF0ZSh7XHJcblx0XHRcdG5hbWU6IGV2ZW50LmN1cnJlbnRUYXJnZXQudmFsdWVcclxuXHRcdH0pXHJcblx0fVxyXG5cclxuXHRzdGFydEdhbWUoZXZlbnQpe1xyXG5cdFx0aWYodGhpcy5zdGF0ZS5uYW1lID09IFwiXCIpe1xyXG5cclxuXHRcdH1cclxuXHRcdGVsc2V7XHJcblx0XHRcdGlmKHRoaXMucHJvcHMuZ2FtZUlEKXtcclxuXHRcdFx0XHR2YXIgcGFyYW1zID0ge1xyXG5cdFx0XHRcdFx0aWQ6IHRoaXMucHJvcHMuZ2FtZUlEXHJcblx0XHRcdFx0fVxyXG5cdFx0XHRcdGZldGNoKHVybG5hbWUgKyBcIi9kZXN0cm95XCIsIHttZXRob2Q6ICdQT1NUJywgaGVhZGVyczogeyAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nfSwgYm9keTogSlNPTi5zdHJpbmdpZnkocGFyYW1zKX0pLnRoZW4ocmVzcG9uc2UgPT4gcmVzcG9uc2UuanNvbigpKS50aGVuKGRhdGEgPT4ge1xyXG5cdFx0XHRcdFx0XHJcblx0XHRcdFx0fSlcclxuXHRcdFx0fVxyXG5cdFx0XHRcclxuXHJcblx0XHRcdHRoaXMucHJvcHMuZGlzcGF0Y2godXBkYXRlTmFtZSh0aGlzLnN0YXRlLm5hbWUpKTtcclxuXHRcdFx0dGhpcy5wcm9wcy5kaXNwYXRjaCh1cGRhdGVHYW1lSUQobnVsbCkpO1xyXG5cdFx0XHR0aGlzLnByb3BzLmRpc3BhdGNoKHVwZGF0ZUdhbWUobnVsbCkpO1xyXG5cclxuXHJcblx0XHRcdGNvbnNvbGUubG9nKFwiZG9uZVwiKVxyXG5cdFx0fVxyXG5cdFx0XHJcblx0fVxyXG5cclxuXHRyZW5kZXIoKXtcclxuXHRcdHJldHVybihcclxuXHRcdFx0PE11aVRoZW1lUHJvdmlkZXIgdGhlbWU9e3RoZW1lfT5cclxuXHRcdFx0PGRpdiBhbGlnbj1cImNlbnRlclwiPlxyXG5cdFx0XHRcdDxici8+PGJyLz5cclxuXHRcdFx0XHQ8aDEgc3R5bGU9e3tmb250RmFtaWx5OiBcIkdyYWR1YXRlXCIsIGZvbnRXZWlnaHQ6IFwiYm9sZFwiLCBmb250U2l6ZTogJzQwcHgnIH19PlF1b3JpZG9yIFJlYWN0PC9oMT48YnIvPjxici8+PGJyLz5cclxuXHRcdFx0XHQ8aDMgc3R5bGU9e3tmb250RmFtaWx5OiBcIlJ1YmlrXCIsIGZvbnRXZWlnaHQ6IFwiYm9sZFwiLCBmb250U2l6ZTogJzIwcHgnIH19PkVudGVyIHlvdXIgbmFtZTwvaDM+XHJcblx0XHRcdFx0PGZvcm0gb25TdWJtaXQ9e2UgPT4ge2UucHJldmVudERlZmF1bHQoKTt9fT5cclxuXHRcdFx0XHRcdDxUZXh0RmllbGQgc3R5bGU9e3tmb250RmFtaWx5OiBcIlJ1YmlrXCIsIGZvbnRXZWlnaHQ6IFwiYm9sZFwiLCBmb250U2l6ZTogJzIwcHgnIH19IG9uS2V5UHJlc3M9e2UgPT4ge2lmIChlLmtleSA9PT0gJ0VudGVyJykgZS5wcmV2ZW50RGVmYXVsdCgpO319IG9uQ2hhbmdlPXt0aGlzLmNoYW5nZU5hbWV9IG1hcmdpbj1cIm5vcm1hbFwiIC8+XHJcblx0XHRcdFx0PC9mb3JtPlxyXG5cdFx0XHRcdDxici8+XHJcblx0XHRcdFx0PExpbmsgIGhyZWY9e3sgcGF0aG5hbWU6ICcvZ2FtZScgfX0+XHJcblx0XHRcdFx0XHQ8QnV0dG9uIHZhcmlhbnQ9XCJjb250YWluZWRcIiBzdHlsZT17e2ZvbnRGYW1pbHk6IFwiR3JhZHVhdGVcIiwgZm9udFdlaWdodDogXCJib2xkXCIsIGZvbnRTaXplOiAnMTZweCcgfX0gb25DbGljaz17dGhpcy5zdGFydEdhbWV9IGNvbG9yPVwic2Vjb25kYXJ5XCI+U3RhcnQgZ2FtZSE8L0J1dHRvbj5cclxuXHRcdFx0XHQ8L0xpbms+XHJcblx0XHRcdFx0PGJyLz48YnIvPjxici8+PGJyLz48YnIvPjxici8+PGJyLz48YnIvPjxici8+PGJyLz5cclxuXHRcdFx0XHQ8TGluayAgaHJlZj17eyBwYXRobmFtZTogJy9sZWFybicgfX0+XHJcblx0XHRcdFx0XHQ8QnV0dG9uIHZhcmlhbnQ9XCJjb250YWluZWRcIiBzdHlsZT17e2ZvbnRGYW1pbHk6IFwiR3JhZHVhdGVcIiwgZm9udFdlaWdodDogXCJib2xkXCIsIGZvbnRTaXplOiAnMTRweCcgfX0gY29sb3I9XCJwcmltYXJ5XCI+SG93IHRvIHBsYXk8L0J1dHRvbj5cclxuXHRcdFx0XHQ8L0xpbms+XHJcblx0XHRcdFx0PHN0eWxlIGpzeCBnbG9iYWw+e2BcclxuXHRcdFx0XHRcdGJvZHkgeyBcclxuXHRcdFx0XHRcdFx0YmFja2dyb3VuZDogI2M5ZjVmZjtcclxuXHRcdFx0XHRcdH1cclxuXHJcblx0XHRcdFx0XHRAaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJ1YmlrJyk7XHJcblxyXG5cdFx0XHRcdFx0QGZvbnRmYWNlIHtcclxuXHRcdFx0XHRcdFx0Zm9udC1mYW1pbHk6ICdSdWJpaycsIGN1cnNpdmU7XHJcblx0XHRcdFx0XHRcdHNyYzogdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9UnViaWsnKVxyXG5cdFx0XHRcdFx0fVxyXG5cclxuXHRcdFx0XHRcdEBpbXBvcnQgdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9R3JhZHVhdGUnKTtcclxuXHJcblx0XHRcdFx0XHRAZm9udGZhY2Uge1xyXG5cdFx0XHRcdFx0XHRmb250LWZhbWlseTogJ0dyYWR1YXRlJywgY3Vyc2l2ZTtcclxuXHRcdFx0XHRcdFx0c3JjOiB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1HcmFkdWF0ZScpXHJcblx0XHRcdFx0XHR9XHJcblx0XHRcdFx0YH1cclxuXHRcdFx0XHQ8L3N0eWxlPlxyXG5cdFx0XHQ8L2Rpdj5cclxuXHRcdFx0PC9NdWlUaGVtZVByb3ZpZGVyPlxyXG5cdFx0KVxyXG5cdH1cclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgUGFnZShjb25uZWN0KHN0YXRlPT5zdGF0ZSkoTG9naW5QYWdlKSkiXX0= */\n/*@ sourceURL=pages\\index.js */"
-      })));
+      }, "How to play")))));
     }
   }]);
 
   return LoginPage;
-}(__WEBPACK_IMPORTED_MODULE_1_react___default.a.Component);
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_6__page_js__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_5_react_redux__["b" /* connect */])(function (state) {
+/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_5__page_js__["a" /* default */])(Object(__WEBPACK_IMPORTED_MODULE_4_react_redux__["b" /* connect */])(function (state) {
   return state;
 })(LoginPage)));
     (function (Component, route) {
@@ -23298,7 +23308,7 @@ var store = Object(__WEBPACK_IMPORTED_MODULE_1_redux__["b" /* createStore */])(_
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/index.js");
@@ -23306,7 +23316,7 @@ module.exports = __webpack_require__("./pages/index.js");
 
 /***/ })
 
-},[4])
+},[3])
           return { page: comp.default }
         })
       ;

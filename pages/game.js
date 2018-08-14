@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch'
 import urlname from '../components/urlname.js'
 import { connect } from "react-redux";
 import Page from "./page.js"
+import Layout from '../components/layout.js'
 import { updateGame, updateName, updateGameID } from "../redux/actions.js";
 
 
@@ -669,6 +670,7 @@ class Game extends React.Component{
 	
 	render(){
 		return(
+			<Layout>
 			<div>
 			{ this.state.gameExists ?
 				(this.props.game ?
@@ -1093,24 +1095,8 @@ class Game extends React.Component{
 			: <h3>{this.state.errorMsg}</h3>
 			}
 
-			<style jsx global>{`
-				body { 
-					background: #c9f5ff;
-				}
-
-				@import url('https://fonts.googleapis.com/css?family=Rubik');
-
-				@fontface {
-					font-family: 'Rubik', cursive;
-					src: url('https://fonts.googleapis.com/css?family=Rubik')
-				}
-
-				@import url('https://fonts.googleapis.com/css?family=Graduate');
-
-				@fontface {
-					font-family: 'Graduate', cursive;
-					src: url('https://fonts.googleapis.com/css?family=Graduate')
-				}
+			<style jsx>{`
+				
 
 				h3 {
 					font-family: "Rubik", Times, serif;
@@ -1126,7 +1112,7 @@ class Game extends React.Component{
 			`}
 			</style>
 			</div>
-			
+			</Layout>
       
 		)
 	}
