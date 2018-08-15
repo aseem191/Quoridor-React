@@ -40,6 +40,20 @@ class Game extends React.Component{
 				arr3[x][y] = "#555";
 			}
 		}
+		var arr4 = [];
+		for(var x = 0; x < 8; x++){
+			arr4[x] = [];
+			for(var y = 0; y < 8; y++){
+				arr4[x][y] = "#4286f4";
+			}
+		}
+		var arr5 = [];
+		for(var x = 0; x < 8; x++){
+			arr5[x] = [];
+			for(var y = 0; y < 8; y++){
+				arr5[x][y] = "#4286f4";
+			}
+		}
 
 		this.state = {
 			squareColor: "#555",
@@ -52,6 +66,8 @@ class Game extends React.Component{
 			playerArray: arr3.slice(),
 			verticalBricks: arr.slice(),
 			horizontalBricks: arr2.slice(),
+			verticalBricksStrat: arr4.slice(),
+			horizontalBricksStrat: arr5.slice(),
 			player1BricksLeft: 10,
 			player2BricksLeft: 10,
 			errorMsg: "",
@@ -95,6 +111,56 @@ class Game extends React.Component{
 				var y1 = this.props.game.Player1y;
 				var x2 = this.props.game.Player2x;
 				var y2 = this.props.game.Player2y;
+
+				if(this.props.game.PlayerTurn != data.PlayerTurn){
+					var brickList = [];
+
+					if(this.props.name == this.props.game.Player1){
+						brickList = data.Player2Bricks;
+					}
+					else{
+						brickList = data.Player2Bricks;
+					}
+
+					params = {
+						bricks: brickList
+					}
+
+					fetch(urlname + "/strategy/" + data._id, {method: 'GET', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+
+						if(data.length == 0){
+							this.setState({
+								stratAlert: false
+							})
+						}
+						else{
+							this.setState({
+								stratAlert: true
+							})
+
+							for(var x = 0; x < 8; x++){
+								for(var y = 0; y < 8; y++){
+									verticalBricksStrat[x][y] = this.state.brickDefaultColor;
+								}
+							}
+							for(var x = 0; x < 8; x++){
+								for(var y = 0; y < 8; y++){
+									horizontalBricksStrat[x][y] = this.state.brickDefaultColor;
+								}
+							}
+
+							for(var i = 0; i < data.length; i++){
+								if(data[i].vertical){
+									verticalBricksStrat[data[i].x][data[i].y] = this.state.brickHighlightedColor;
+								}
+								else{
+									horizontalBricksStrat[data[i].x][data[i].y] = this.state.brickHighlightedColor;
+								}
+							}
+						}
+					})
+
+				}
 
 				this.props.dispatch(updateGame(data));
 				if(data.ToDestroy){
@@ -1094,7 +1160,8 @@ class Game extends React.Component{
 
 					{this.state.stratAlert ? 
 
-					(<div style={{backgroundColor: this.state.brickDefaultColor, width: "520px"}}>
+					(<div><h3>Alert! {this.props.game.Player1 == this.props.name ? this.props.game.Player2 : this.props.game.Player1} might be looking to use this tactic!</h3><br/>
+					<div style={{backgroundColor: this.state.brickDefaultColor, width: "520px"}}>
 					<div>
 						<div x={0} y={0} style={{float: "left", display: "inline", height: "40px", width: "40px", backgroundColor: this.state.playerArray[0][0]}}></div>
 						<div orientation="vertical" x={0} y={0} style={{float: "left", display: "inline", height: "40px", width: "20px", backgroundColor: this.state.verticalBricksStrat[0][0]}}></div>
@@ -1480,7 +1547,7 @@ class Game extends React.Component{
 
 
 					</div>
-					)
+					</div>)
 					: null
 					}
 
