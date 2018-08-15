@@ -113,53 +113,64 @@ class Game extends React.Component{
 				var y2 = this.props.game.Player2y;
 
 				if(this.props.game.PlayerTurn != data.PlayerTurn){
-					var brickList = [];
+					if((data.PlayerTurn == 1 && this.props.name == this.props.game.Player2) || (data.PlayerTurn == 2 && this.props.name == this.props.game.Player1)){
+						var brickList = [];
 
-					if(this.props.name == this.props.game.Player1){
-						brickList = data.Player2Bricks;
-					}
-					else{
-						brickList = data.Player2Bricks;
-					}
-
-					params = {
-						bricks: brickList
-					}
-
-					fetch(urlname + "/strategy/" + data._id, {method: 'GET', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
-
-						if(data.length == 0){
-							this.setState({
-								stratAlert: false
-							})
+						if(this.props.name == this.props.game.Player1){
+							brickList = data.Player2Bricks;
 						}
 						else{
-							this.setState({
-								stratAlert: true
-							})
-
-							for(var x = 0; x < 8; x++){
-								for(var y = 0; y < 8; y++){
-									verticalBricksStrat[x][y] = this.state.brickDefaultColor;
-								}
-							}
-							for(var x = 0; x < 8; x++){
-								for(var y = 0; y < 8; y++){
-									horizontalBricksStrat[x][y] = this.state.brickDefaultColor;
-								}
-							}
-
-							for(var i = 0; i < data.length; i++){
-								if(data[i].vertical){
-									verticalBricksStrat[data[i].x][data[i].y] = this.state.brickHighlightedColor;
-								}
-								else{
-									horizontalBricksStrat[data[i].x][data[i].y] = this.state.brickHighlightedColor;
-								}
-							}
+							brickList = data.Player2Bricks;
 						}
-					})
 
+						var params = {
+							bricks: brickList
+						}
+
+						console.log("changed");
+						fetch(urlname + "/strategy", {method: 'PUT', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.text()).then(data => {
+
+							console.log("strategy response: " + JSON.stringify(data))
+							/*if(data.length == 0){
+								this.setState({
+									stratAlert: false
+								})
+							}
+							else{
+
+								var vert2 = this.state.verticalBricksStrat.slice();
+								var horiz2 = this.state.horizontalBricksStrat.slice();
+
+								for(var x = 0; x < 8; x++){
+									for(var y = 0; y < 8; y++){
+										vert2[x][y] = this.state.brickDefaultColor;
+									}
+								}
+								for(var x = 0; x < 8; x++){
+									for(var y = 0; y < 8; y++){
+										horiz2[x][y] = this.state.brickDefaultColor;
+									}
+								}
+
+								for(var i = 0; i < data.length; i++){
+									if(data[i].vertical){
+										vert2[data[i].x][data[i].y] = this.state.brickHighlightedColor;
+									}
+									else{
+										horiz2[data[i].x][data[i].y] = this.state.brickHighlightedColor;
+									}
+								}
+
+								this.setState({
+									stratAlert: true,
+									verticalBricksStrat: vert2,
+									horizontalBricksStrat: horiz2
+								})
+							}*/
+						})
+
+					}
+					
 				}
 
 				this.props.dispatch(updateGame(data));
@@ -178,7 +189,7 @@ class Game extends React.Component{
 						winner: this.props.name
 					}
 
-					fetch(urlname + "/game/" + tempID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+					fetch(urlname + "/gameNoStrat/" + tempID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 						console.log("ended game")
 					})
 				}
@@ -300,7 +311,7 @@ class Game extends React.Component{
 
 					this.props.dispatch(updateGameID(null));
 					this.props.dispatch(updateGame(null));
-					fetch(urlname + "/game/" + gameID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
+					fetch(urlname + "/gameNoStrat/" + gameID, {method: 'DELETE', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 						console.log("ended game")
 
 						return "Game has ended."
