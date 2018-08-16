@@ -108,6 +108,16 @@ class LoginPage extends React.Component{
 				
 			</div>
 			</MuiThemeProvider>
+			<style jsx global>{`
+				body { 
+					background: #c9f5ff;
+					background-image: url("/static/bgleft.png"), url("/static/bgright.png");
+					background-position: left center, right center;
+					background-repeat: no-repeat, no-repeat;
+				}
+				
+			`}
+			</style>
 			</Layout>
 		)
 	}

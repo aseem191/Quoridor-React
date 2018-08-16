@@ -4,9 +4,6 @@ const Layout = (props) => (
   <div>
   {props.children}
   <style jsx global>{`
-    body { 
-      background: #c9f5ff;
-    }
 
     @import url('https://fonts.googleapis.com/css?family=Rubik');
 

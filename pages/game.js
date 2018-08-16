@@ -1565,8 +1565,10 @@ class Game extends React.Component{
 			: <h3>{this.state.errorMsg}</h3>
 			}
 
-			<style jsx>{`
-				
+			<style jsx global>{`
+				body { 
+					background: #c9f5ff;
+				}
 
 				h3 {
 					font-family: "Rubik", Times, serif;

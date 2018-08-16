@@ -122,7 +122,10 @@ class LoginPage extends React.Component{
 					<Button variant="contained" style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '16px' }} color="primary">Go back</Button>
 				</Link>
 				<br/><br/><br/>
-				<style jsx>{`
+				<style jsx global>{`
+					body { 
+						background: #c9f5ff;
+					}
 					
 					h3 {
 						font-family: "Rubik", Times, serif;
