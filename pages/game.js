@@ -475,7 +475,6 @@ class Game extends React.Component{
 										y: event.currentTarget.getAttribute('y')
 									}
 
-									clearInterval(this.interval);
 
 									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 										console.log("move response is " + JSON.stringify(data))
@@ -483,6 +482,8 @@ class Game extends React.Component{
 											this.setState({
 												errorMsg: ""
 											})
+
+											this.fetchGame();
 										}
 										else{
 											this.setState({
@@ -490,7 +491,6 @@ class Game extends React.Component{
 											})
 										}
 
-										this.interval = setInterval(() => this.fetchGame(), 2000);
 									})
 								}
 							}
@@ -504,7 +504,6 @@ class Game extends React.Component{
 										y: event.currentTarget.getAttribute('y')
 									}
 
-									clearInterval(this.interval);
 
 									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 										console.log("move response is " + JSON.stringify(data))
@@ -512,6 +511,8 @@ class Game extends React.Component{
 											this.setState({
 												errorMsg: ""
 											})
+
+											this.fetchGame();
 										}
 										else{
 											this.setState({
@@ -519,7 +520,6 @@ class Game extends React.Component{
 											})
 										}
 
-										this.interval = setInterval(() => this.fetchGame(), 2000);
 									})
 								}
 							}
@@ -537,7 +537,6 @@ class Game extends React.Component{
 										y: event.currentTarget.getAttribute('y')
 									}
 
-									clearInterval(this.interval);
 
 									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 										console.log("move response is " + JSON.stringify(data))
@@ -545,6 +544,8 @@ class Game extends React.Component{
 											this.setState({
 												errorMsg: ""
 											})
+
+											this.fetchGame();
 										}
 										else{
 											this.setState({
@@ -552,7 +553,6 @@ class Game extends React.Component{
 											})
 										}
 
-										this.interval = setInterval(() => this.fetchGame(), 2000);
 									})
 								}
 							}
@@ -566,7 +566,6 @@ class Game extends React.Component{
 										y: event.currentTarget.getAttribute('y')
 									}
 
-									clearInterval(this.interval);
 
 									fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 										console.log("move response is " + JSON.stringify(data))
@@ -574,14 +573,14 @@ class Game extends React.Component{
 											this.setState({
 												errorMsg: ""
 											})
+
+											this.fetchGame();
 										}
 										else{
 											this.setState({
 												errorMsg: data.response
 											})
 										}
-
-										this.interval = setInterval(() => this.fetchGame(), 2000);
 									})
 								}
 							}
@@ -623,22 +622,20 @@ class Game extends React.Component{
 						}
 					}
 
-					clearInterval(this.interval);
-
 					fetch(urlname + "/move", {method: 'POST', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 						console.log("brick response is " + JSON.stringify(data))
 						if(!data.error){
 							this.setState({
 								errorMsg: ""
 							})
+
+							this.fetchGame();
 						}
 						else{
 							this.setState({
 								errorMsg: data.response
 							})
 						}
-
-						this.interval = setInterval(() => this.fetchGame(), 2000);
 					})
 				}
 			}
@@ -1165,9 +1162,7 @@ class Game extends React.Component{
 						: null
 					}
 					
-					<br/><br/>
-
-					//Strategy section
+					<br/>
 
 					{this.state.stratAlert ? 
 

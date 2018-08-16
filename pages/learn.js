@@ -110,12 +110,18 @@ class LoginPage extends React.Component{
 
 				<img style={{height: "300px", width: "400px"}} src="/static/blocked.PNG" />
 
+				<h3>Occasionally, alerts will pop up, which indicate strategies that the other player may be trying to use!</h3>
+
+				<img style={{height: "450px", width: "400px"}} src="/static/stratalert.PNG" />
+
+				<br/><br/>
 				<h2>Have fun building quoridors!</h2>
 				
 				<br/>
 				<Link  href={{ pathname: '/' }}>
 					<Button variant="contained" style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '16px' }} color="primary">Go back</Button>
 				</Link>
+				<br/><br/><br/>
 				<style jsx>{`
 					
 					h3 {
