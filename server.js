@@ -46,6 +46,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 	}
 */
 
+
+var origin = "website here";
+
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,HEAD,DELETE,OPTIONS');
@@ -97,6 +100,7 @@ app.get('/game/:id', function(req, res) {
 	});
 
 })
+
 
 
 app.post('/player', function(req, res) {
@@ -896,7 +900,82 @@ app.delete('/game/:id', function(req, res) {
 })
 
 
-app.delete('/all', function(req, res) {
+app.put('/strategy', function(req, res) {
+
+	var bricks = req.body.bricks;
+	console.log("bricks are " + JSON.stringify(bricks))
+
+	MongoClient.connect(url, function(err, db) {
+		if (err) throw err;
+		console.log("Database connected");
+
+		if(bricks.length < 3){
+			db.close();
+			res.json([]);
+		}
+		else{
+			var dbo = db.db("quoridor");
+			var query = {WinningBricks: {$all: bricks}}
+			dbo.collection("strategy").find(query).toArray(function(err, result) {
+				if (err) throw err;
+
+				var resjson = [];
+				var biggest = 0;
+
+				console.log("result.length" + result.length)
+
+				for(var i = 0; i < result.length; i++){
+					if(result[i].WinningBricks.length > biggest){
+						biggest = result[i].WinningBricks.length;
+						resjson = result[i].WinningBricks;
+					}
+				}
+
+				db.close();
+				res.json(resjson);
+			});
+
+		}
+
+
+		
+	});
+
+})
+
+
+app.delete('/gameNoStrat/:id', function(req, res) {
+
+	var id = req.params.id;
+	var winner = req.body.winner;
+
+	MongoClient.connect(url, function(err, db) {
+		if (err) throw err;
+		console.log("Database connected");
+		var dbo = db.db("quoridor");
+		var o_id = new mongo.ObjectID(id);
+		var query = {_id: o_id};
+		
+				
+		dbo.collection("game").findOneAndDelete(query, function(err, result) {
+			if (err) throw err;
+			
+			var resjson = {
+				error: false,
+				response: result.value
+			}
+
+			db.close();
+			res.json(resjson);
+		});
+
+	});
+		
+
+})
+
+
+app.delete('/allGames', function(req, res) {
 
 	var id = req.params.id;
 	var winner = req.body.winner;
@@ -906,6 +985,31 @@ app.delete('/all', function(req, res) {
 		console.log("Database connected");
 		var dbo = db.db("quoridor");
 		dbo.collection("game").deleteMany({}, function(err, result) {
+			if (err) throw err;
+			
+			var resjson = {
+				error: false,
+				response: result.result.n
+			}
+
+			db.close();
+			res.json(resjson);
+		});
+	});
+
+})
+
+
+app.delete('/allStrats', function(req, res) {
+
+	var id = req.params.id;
+	var winner = req.body.winner;
+
+	MongoClient.connect(url, function(err, db) {
+		if (err) throw err;
+		console.log("Database connected");
+		var dbo = db.db("quoridor");
+		dbo.collection("strategy").deleteMany({}, function(err, result) {
 			if (err) throw err;
 			
 			var resjson = {
@@ -932,6 +1036,34 @@ app.get('/test', function(req, res) {
 		var o_id = new mongo.ObjectID(id);
 		var dbo = db.db("quoridor");
 		dbo.collection("game").find({}).toArray(function(err, result) {
+			if (err) throw err;
+			var resjson = result;
+
+			if(result.length == 0){
+				db.close();
+				res.write("No game found.");
+			}
+
+			db.close();
+			res.json(resjson);
+		});
+
+		
+	});
+
+})
+
+
+app.get('/test2', function(req, res) {
+
+	var id = req.params.id;
+
+	MongoClient.connect(url, function(err, db) {
+		if (err) throw err;
+		console.log("Database connected");
+		var o_id = new mongo.ObjectID(id);
+		var dbo = db.db("quoridor");
+		dbo.collection("strategy").find({}).toArray(function(err, result) {
 			if (err) throw err;
 			var resjson = result;
 
