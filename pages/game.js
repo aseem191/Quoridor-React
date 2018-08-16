@@ -113,14 +113,14 @@ class Game extends React.Component{
 				var y2 = this.props.game.Player2y;
 
 				if(this.props.game.PlayerTurn != data.PlayerTurn){
-					if((data.PlayerTurn == 1 && this.props.name == this.props.game.Player2) || (data.PlayerTurn == 2 && this.props.name == this.props.game.Player1)){
+					if((data.PlayerTurn == 2 && this.props.name == this.props.game.Player2) || (data.PlayerTurn == 1 && this.props.name == this.props.game.Player1)){
 						var brickList = [];
 
 						if(this.props.name == this.props.game.Player1){
 							brickList = data.Player2Bricks;
 						}
 						else{
-							brickList = data.Player2Bricks;
+							brickList = data.Player1Bricks;
 						}
 
 						var params = {
@@ -128,10 +128,10 @@ class Game extends React.Component{
 						}
 
 						console.log("changed");
-						fetch(urlname + "/strategy", {method: 'PUT', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.text()).then(data => {
+						fetch(urlname + "/strategy", {method: 'PUT', headers: { 'Content-Type': 'application/json'}, body: JSON.stringify(params)}).then(response => response.json()).then(data => {
 
-							console.log("strategy response: " + JSON.stringify(data))
-							/*if(data.length == 0){
+							console.log("strategy response: " + JSON.stringify(data) + data.length)
+							if(data.length == 0){
 								this.setState({
 									stratAlert: false
 								})
@@ -154,19 +154,19 @@ class Game extends React.Component{
 
 								for(var i = 0; i < data.length; i++){
 									if(data[i].vertical){
-										vert2[data[i].x][data[i].y] = this.state.brickHighlightedColor;
+										vert2[data[i].x][data[i].y] = this.state.brickExistsColor;
 									}
 									else{
-										horiz2[data[i].x][data[i].y] = this.state.brickHighlightedColor;
+										horiz2[data[i].x][data[i].y] = this.state.brickExistsColor;
 									}
 								}
-
+								console.log("updating strat")
 								this.setState({
 									stratAlert: true,
 									verticalBricksStrat: vert2,
 									horizontalBricksStrat: horiz2
 								})
-							}*/
+							}
 						})
 
 					}
