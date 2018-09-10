@@ -1161,8 +1161,6 @@ class Game extends React.Component{
 						<h3>{this.props.game.Player2} has {this.state.player2BricksLeft} bricks left.</h3>
 						: null
 					}
-					
-					<br/>
 
 					{this.state.stratAlert ? 
 

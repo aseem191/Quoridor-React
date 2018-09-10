@@ -2,8 +2,10 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var MongoClient = require('mongodb').MongoClient;
+var apicache = require('apicache');
 
 var app = express();
+let cache = apicache.middleware;
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -73,7 +75,7 @@ app.get('/', function(req, res) {
 })
 
 
-app.get('/game/:id', function(req, res) {
+app.get('/game/:id', cache('2 seconds'), function(req, res) {
 
 	var id = req.params.id;
 

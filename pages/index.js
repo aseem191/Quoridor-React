@@ -105,6 +105,8 @@ class LoginPage extends React.Component{
 				<Link  href={{ pathname: '/learn' }}>
 					<Button variant="contained" style={{fontFamily: "Graduate", fontWeight: "bold", fontSize: '14px' }} color="primary">How to play</Button>
 				</Link>
+				<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				<h6 style={{fontSize: "12px", color: "#005b99"}}>Created by Aseem Sane. To visit the GitHub repository for this project, go <a href="https://github.com/aseem191/Quoridor-React" style={{fontSize: "12px"}}>here</a>.</h6>
 				
 			</div>
 			</MuiThemeProvider>
@@ -112,7 +114,7 @@ class LoginPage extends React.Component{
 				body { 
 					background: #c9f5ff;
 					background-image: url("/static/bgleft.png"), url("/static/bgright.png");
-					background-position: left center, right center;
+					background-position: left bottom, right bottom;
 					background-repeat: no-repeat, no-repeat;
 				}
 				
