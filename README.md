@@ -1,4 +1,4 @@
-My recreation of the board game Quoridor made using React/Redux and MongoDB, with a strategy-uncovering twist! Visit https://reactquoridor.now.sh/ to use the app!
+My recreation of the board game Quoridor made using React/Redux and MongoDB, with a strategy-uncovering twist!
 
 
 This repository contains my React project code. server.js contains my backend REST API that communicates with an mLab MongoDB database.
